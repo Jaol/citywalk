@@ -10,37 +10,37 @@
 #import "UICGDirections.h"
 #import "UICGCheckPoint.h"
 #import "Globals.h"
-#import "SBMapWithRouteAppDelegate.h"
-#import "SBMapWithRouteViewController.h"
-@class SBMapView;
-@class SBRouteAnnotation;
+#import "citywalkAppDelegate.h"
+#import "citywalkViewController.h"
+@class citywalkMapView;
+@class citywalkRouteAnnotation;
 @class UICGRoutes;
-@class SBRouteDetailView;
+@class citywalkRouteDetailView;
 
 
-@interface SBGoogleMap : UIViewController <UICGDirectionsDelegate,UIWebViewDelegate>
+@interface citywalkGoogleMap : UIViewController <UICGDirectionsDelegate,UIWebViewDelegate>
 {
 
-	SBMapView*			mMap;				// An Instance of SBMapView which holds instance of MKMapView
+	citywalkMapView*			mMap;				// An Instance of SBMapView which holds instance of MKMapView
 	UICGTravelModes		mTravelMode;		// A constant which will give travelling mode
 	UICGDirections*		mDirections;		// An Instance of UICGDirections which gives the information of directions
 	NSString*			mStartPoint;		// It will take the name of source city
 	NSString*			mEndPoint;			// It will take the name of source city
-	SBRouteAnnotation*	mBetweenAnnotation;	// An Instance of SBRouteAnnotation which will give the annotations for checkpoints in the route. 
+	citywalkRouteAnnotation*	mBetweenAnnotation;	// An Instance of SBRouteAnnotation which will give the annotations for checkpoints in the route. 
 	UIBarButtonItem*	mLoadBtn;			// button for loading and removing annotations for checkpoints in the route. 
 	NSMutableArray*		mAnnotationArray;	// An array of  annotations for checkpoints in the route.
 	NSMutableArray*		destination;
 	UICGRoutes *		routes;	
 	NSMutableArray*		mAnnotations;
 	NSArray *			mRouteArray;
-	IBOutlet SBRouteDetailView*  mRouteDetail;
+	IBOutlet citywalkRouteDetailView*  mRouteDetail;
     NSMutableArray *annotationContent;
   }
 
 
 
-@property (nonatomic, strong) SBMapWithRouteViewController *firstController;
-@property (nonatomic,retain) SBMapView* map;
+@property (nonatomic, strong) citywalkViewController *firstController;
+@property (nonatomic,retain) citywalkMapView* map;
 @property (nonatomic,retain) NSString* startPoint;
 @property (nonatomic,retain) NSString* endPoint;
 @property (nonatomic,retain) UIBarButtonItem* loadBtn;
@@ -50,7 +50,7 @@
 @property (nonatomic,retain) UICGRoutes *		routes;	
 @property (nonatomic,retain) NSMutableArray *mAnnotations;
 @property (nonatomic,retain) NSArray *mRouteArray;
-@property (nonatomic,retain) SBRouteDetailView*  mRouteDetail;
+@property (nonatomic,retain) citywalkRouteDetailView*  mRouteDetail;
 @property (nonatomic, strong)NSArray *locArray;
 @property (nonatomic, retain)NSMutableArray *annotationContent;
 

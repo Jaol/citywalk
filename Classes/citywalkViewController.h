@@ -7,11 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "SBMapWithRouteAppDelegate.h"
-#import "SBGoogleMap.h"
+#import "citywalkAppDelegate.h"
+#import "citywalkGoogleMap.h"
 #import "Globals.h"
 
-@interface SBMapWithRouteViewController : UIViewController <UITextFieldDelegate>{
+@interface citywalkViewController : UIViewController <UITextFieldDelegate>{
 
 	UITextField			*mSourceCity;		//TextField for the Source city
 	UITextField			*mDestinationCity1;	//TextField for the Destination city1

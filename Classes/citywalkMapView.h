@@ -1,9 +1,9 @@
 //
 //  SBMapView.h
-//  SBMapWithRoute
+//  Citywalk
 //
-//  Created by Surya Kant on 15/09/11.
-//  Copyright 2011 __MyCompanyName__. All rights reserved.
+//  Created by JAkob Højgård Olsen
+//  Copyright 2013 Grafect All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
@@ -11,7 +11,7 @@
 #import <MapKit/MKPolyline.h>
 #import <AVFoundation/AVFoundation.h>
 #import "Globals.h"
-@interface SBMapView : UIView<MKMapViewDelegate> 
+@interface citywalkMapView : UIView<MKMapViewDelegate> 
 {
 	MKMapView*			mMapView;			  	    // the view we create for the map
 	MKPolyline*			mrouteLine;			 	    // An Instance of Line (MKPolyline)  on the map

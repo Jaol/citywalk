@@ -1,9 +1,9 @@
 //
 //  City.m
-//  SBMapWithRoute
+//  Citywalk
 //
-//  Created by Surya Kant on 15/09/11.
-//  Copyright 2011 __MyCompanyName__. All rights reserved.
+//  Created by JAkob Højgård Olsen
+//  Copyright 2013 Grafect All rights reserved.
 //
 
 #import "City.h"

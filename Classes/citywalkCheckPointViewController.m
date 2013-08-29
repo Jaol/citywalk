@@ -1,20 +1,20 @@
 //
 //  SBCheckPoints.m
-//  SBMapWithRoute
+//  Citywalk
 //
-//  Created by Surya Kant on 28/09/11.
-//  Copyright 2011 __MyCompanyName__. All rights reserved.
+//  Created by JAkob Højgård Olsen
+//  Copyright 2013 Grafect All rights reserved.
 //
 
-#import "SBCheckPointViewController.h"
+#import "citywalkCheckPointViewController.h"
 
 
-@interface SBCheckPointViewController(Private)
+@interface citywalkCheckPointViewController(Private)
 -(void)releaseAllViews;
 -(void)customInitialization;
 @end
 
-@implementation SBCheckPointViewController(Private)
+@implementation citywalkCheckPointViewController(Private)
 -(void)releaseAllViews
 {
     
@@ -31,7 +31,7 @@
 
 
 
-@implementation SBCheckPointViewController
+@implementation citywalkCheckPointViewController
 @synthesize mTable;
 @synthesize mCheckPoints;
 

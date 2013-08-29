@@ -1,15 +1,15 @@
 //
-//  SBMapWithRouteAppDelegate.m
-//  SBMapWithRoute
+//  citywalkAppDelegate.m
+//  citywalk
 //
-//  Created by Surya Kant on 15/09/11.
-//  Copyright 2011 __MyCompanyName__. All rights reserved.
+//  Created by Jakob Højgård Olsen
+//  Copyright 2013 Grafect All rights reserved.
 //
 
-#import "SBMapWithRouteAppDelegate.h"
-#import "SBMapWithRouteViewController.h"
+#import "citywalkAppDelegate.h"
+#import "citywalkViewController.h"
 
-@implementation SBMapWithRouteAppDelegate
+@implementation citywalkAppDelegate
 
 @synthesize window;
 @synthesize viewController;

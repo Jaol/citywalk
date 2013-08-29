@@ -7,14 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		1D3623260D0F684500981E51 /* SBMapWithRouteAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D3623250D0F684500981E51 /* SBMapWithRouteAppDelegate.m */; };
+		1D3623260D0F684500981E51 /* citywalkAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D3623250D0F684500981E51 /* citywalkAppDelegate.m */; };
 		1D60589B0D05DD56006BFB54 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B97316FDCFA39411CA2CEA /* main.m */; };
 		1D60589F0D05DD5A006BFB54 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D30AB110D05D00D00671497 /* Foundation.framework */; };
 		1DF5F4E00D08C38300B7A737 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DF5F4DF0D08C38300B7A737 /* UIKit.framework */; };
 		288765A50DF7441C002DB57D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 288765A40DF7441C002DB57D /* CoreGraphics.framework */; };
-		2899E5220DE3E06400AC0155 /* SBMapWithRouteViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2899E5210DE3E06400AC0155 /* SBMapWithRouteViewController.xib */; };
+		2899E5220DE3E06400AC0155 /* citywalkViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2899E5210DE3E06400AC0155 /* citywalkViewController.xib */; };
 		28AD733F0D9D9553002E5188 /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 28AD733E0D9D9553002E5188 /* MainWindow.xib */; };
-		28D7ACF80DDB3853001CB0EB /* SBMapWithRouteViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 28D7ACF70DDB3853001CB0EB /* SBMapWithRouteViewController.m */; };
+		28D7ACF80DDB3853001CB0EB /* citywalkViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 28D7ACF70DDB3853001CB0EB /* citywalkViewController.m */; };
 		6836976117C7558600F71929 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6836976017C7558600F71929 /* AVFoundation.framework */; };
 		6836976317C7567500F71929 /* notisfiction.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 6836976217C7567500F71929 /* notisfiction.mp3 */; };
 		68572B9917CF6D1B003A545F /* MainWindow-iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = 68572B9817CF6D1B003A545F /* MainWindow-iPad.xib */; };
@@ -22,9 +22,9 @@
 		6889E94217CCCE88003D4115 /* locations.json in Resources */ = {isa = PBXBuildFile; fileRef = 6889E94117CCCE88003D4115 /* locations.json */; };
 		6889E94617CDE9F7003D4115 /* DSTPickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6889E94517CDE9F7003D4115 /* DSTPickerView.m */; };
 		6889E94817CDEA5D003D4115 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6889E94717CDEA5D003D4115 /* AudioToolbox.framework */; };
-		72237DF71429B23200257B9A /* SBRouteAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 72237DF61429B23200257B9A /* SBRouteAnnotation.m */; };
-		727C7ABD143323EE00A5E466 /* SBCheckPointViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 727C7ABB143323EE00A5E466 /* SBCheckPointViewController.m */; };
-		727C7ABE143323EE00A5E466 /* SBCheckPoints.xib in Resources */ = {isa = PBXBuildFile; fileRef = 727C7ABC143323EE00A5E466 /* SBCheckPoints.xib */; };
+		72237DF71429B23200257B9A /* citywalkRouteAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 72237DF61429B23200257B9A /* citywalkRouteAnnotation.m */; };
+		727C7ABD143323EE00A5E466 /* citywalkCheckPointViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 727C7ABB143323EE00A5E466 /* citywalkCheckPointViewController.m */; };
+		727C7ABE143323EE00A5E466 /* citywalkCheckPoints.xib in Resources */ = {isa = PBXBuildFile; fileRef = 727C7ABC143323EE00A5E466 /* citywalkCheckPoints.xib */; };
 		727C7C3D14334E2D00A5E466 /* JSONKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 727C7C3C14334E2D00A5E466 /* JSONKit.m */; };
 		727E1F35142B04F00048DE8D /* UICGCheckPoint.m in Sources */ = {isa = PBXBuildFile; fileRef = 727E1F34142B04F00048DE8D /* UICGCheckPoint.m */; };
 		72AA5C311431A90B00301788 /* UICGRoutes.m in Sources */ = {isa = PBXBuildFile; fileRef = 72AA5C301431A90B00301788 /* UICGRoutes.m */; };
@@ -41,9 +41,9 @@
 		72D7846914220F8F009B96E5 /* UICGRoute.m in Sources */ = {isa = PBXBuildFile; fileRef = 72D7846114220F8F009B96E5 /* UICGRoute.m */; };
 		72D784A314221087009B96E5 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 72D784A214221087009B96E5 /* CoreLocation.framework */; };
 		72D784A51422108F009B96E5 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 72D784A41422108F009B96E5 /* MapKit.framework */; };
-		72D784DE14221280009B96E5 /* SBGoogleMap.m in Sources */ = {isa = PBXBuildFile; fileRef = 72D784DC14221280009B96E5 /* SBGoogleMap.m */; };
-		72D784DF14221280009B96E5 /* SBGoogleMap.xib in Resources */ = {isa = PBXBuildFile; fileRef = 72D784DD14221280009B96E5 /* SBGoogleMap.xib */; };
-		72D7851414221574009B96E5 /* SBMapView.m in Sources */ = {isa = PBXBuildFile; fileRef = 72D7851314221574009B96E5 /* SBMapView.m */; };
+		72D784DE14221280009B96E5 /* citywalkGoogleMap.m in Sources */ = {isa = PBXBuildFile; fileRef = 72D784DC14221280009B96E5 /* citywalkGoogleMap.m */; };
+		72D784DF14221280009B96E5 /* citywalkGoogleMap.xib in Resources */ = {isa = PBXBuildFile; fileRef = 72D784DD14221280009B96E5 /* citywalkGoogleMap.xib */; };
+		72D7851414221574009B96E5 /* citywalkMapView.m in Sources */ = {isa = PBXBuildFile; fileRef = 72D7851314221574009B96E5 /* citywalkMapView.m */; };
 		72D7853A14221803009B96E5 /* City.m in Sources */ = {isa = PBXBuildFile; fileRef = 72D7853914221803009B96E5 /* City.m */; };
 		72D7862E142222AA009B96E5 /* api.html in Resources */ = {isa = PBXBuildFile; fileRef = 72D7862D142222AA009B96E5 /* api.html */; };
 		72D787BF14223C66009B96E5 /* iCon.png in Resources */ = {isa = PBXBuildFile; fileRef = 72D787BE14223C66009B96E5 /* iCon.png */; };
@@ -51,15 +51,15 @@
 
 /* Begin PBXFileReference section */
 		1D30AB110D05D00D00671497 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
-		1D3623240D0F684500981E51 /* SBMapWithRouteAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBMapWithRouteAppDelegate.h; sourceTree = "<group>"; };
-		1D3623250D0F684500981E51 /* SBMapWithRouteAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBMapWithRouteAppDelegate.m; sourceTree = "<group>"; };
+		1D3623240D0F684500981E51 /* citywalkAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = citywalkAppDelegate.h; sourceTree = "<group>"; };
+		1D3623250D0F684500981E51 /* citywalkAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = citywalkAppDelegate.m; sourceTree = "<group>"; };
 		1D6058910D05DD3D006BFB54 /* CityWalk.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CityWalk.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1DF5F4DF0D08C38300B7A737 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		288765A40DF7441C002DB57D /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
-		2899E5210DE3E06400AC0155 /* SBMapWithRouteViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SBMapWithRouteViewController.xib; sourceTree = "<group>"; };
+		2899E5210DE3E06400AC0155 /* citywalkViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = citywalkViewController.xib; sourceTree = "<group>"; };
 		28AD733E0D9D9553002E5188 /* MainWindow.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainWindow.xib; sourceTree = "<group>"; };
-		28D7ACF60DDB3853001CB0EB /* SBMapWithRouteViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBMapWithRouteViewController.h; sourceTree = "<group>"; };
-		28D7ACF70DDB3853001CB0EB /* SBMapWithRouteViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBMapWithRouteViewController.m; sourceTree = "<group>"; };
+		28D7ACF60DDB3853001CB0EB /* citywalkViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = citywalkViewController.h; sourceTree = "<group>"; };
+		28D7ACF70DDB3853001CB0EB /* citywalkViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = citywalkViewController.m; sourceTree = "<group>"; };
 		29B97316FDCFA39411CA2CEA /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		32CA4F630368D1EE00C91783 /* CityWalk_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CityWalk_Prefix.pch; sourceTree = "<group>"; };
 		6836976017C7558600F71929 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
@@ -71,11 +71,11 @@
 		6889E94417CDE9F7003D4115 /* DSTPickerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DSTPickerView.h; sourceTree = "<group>"; };
 		6889E94517CDE9F7003D4115 /* DSTPickerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DSTPickerView.m; sourceTree = "<group>"; };
 		6889E94717CDEA5D003D4115 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
-		72237DF51429B23200257B9A /* SBRouteAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBRouteAnnotation.h; sourceTree = "<group>"; };
-		72237DF61429B23200257B9A /* SBRouteAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBRouteAnnotation.m; sourceTree = "<group>"; };
-		727C7ABA143323EE00A5E466 /* SBCheckPointViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBCheckPointViewController.h; sourceTree = "<group>"; };
-		727C7ABB143323EE00A5E466 /* SBCheckPointViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBCheckPointViewController.m; sourceTree = "<group>"; };
-		727C7ABC143323EE00A5E466 /* SBCheckPoints.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = SBCheckPoints.xib; path = Classes/SBCheckPoints.xib; sourceTree = "<group>"; };
+		72237DF51429B23200257B9A /* citywalkRouteAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = citywalkRouteAnnotation.h; sourceTree = "<group>"; };
+		72237DF61429B23200257B9A /* citywalkRouteAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = citywalkRouteAnnotation.m; sourceTree = "<group>"; };
+		727C7ABA143323EE00A5E466 /* citywalkCheckPointViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = citywalkCheckPointViewController.h; sourceTree = "<group>"; };
+		727C7ABB143323EE00A5E466 /* citywalkCheckPointViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = citywalkCheckPointViewController.m; sourceTree = "<group>"; };
+		727C7ABC143323EE00A5E466 /* citywalkCheckPoints.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = citywalkCheckPoints.xib; path = Classes/citywalkCheckPoints.xib; sourceTree = "<group>"; };
 		727C7C3B14334E2D00A5E466 /* JSONKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSONKit.h; sourceTree = "<group>"; };
 		727C7C3C14334E2D00A5E466 /* JSONKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSONKit.m; sourceTree = "<group>"; };
 		727E1F33142B04F00048DE8D /* UICGCheckPoint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UICGCheckPoint.h; sourceTree = "<group>"; };
@@ -107,11 +107,11 @@
 		72D7846114220F8F009B96E5 /* UICGRoute.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UICGRoute.m; path = Classes/UICGRoute.m; sourceTree = SOURCE_ROOT; };
 		72D784A214221087009B96E5 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		72D784A41422108F009B96E5 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
-		72D784DB14221280009B96E5 /* SBGoogleMap.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBGoogleMap.h; sourceTree = "<group>"; };
-		72D784DC14221280009B96E5 /* SBGoogleMap.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBGoogleMap.m; sourceTree = "<group>"; };
-		72D784DD14221280009B96E5 /* SBGoogleMap.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = SBGoogleMap.xib; path = Classes/SBGoogleMap.xib; sourceTree = "<group>"; };
-		72D7851214221574009B96E5 /* SBMapView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBMapView.h; sourceTree = "<group>"; };
-		72D7851314221574009B96E5 /* SBMapView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBMapView.m; sourceTree = "<group>"; };
+		72D784DB14221280009B96E5 /* citywalkGoogleMap.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = citywalkGoogleMap.h; sourceTree = "<group>"; };
+		72D784DC14221280009B96E5 /* citywalkGoogleMap.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = citywalkGoogleMap.m; sourceTree = "<group>"; };
+		72D784DD14221280009B96E5 /* citywalkGoogleMap.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = citywalkGoogleMap.xib; path = Classes/citywalkGoogleMap.xib; sourceTree = "<group>"; };
+		72D7851214221574009B96E5 /* citywalkMapView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = citywalkMapView.h; sourceTree = "<group>"; };
+		72D7851314221574009B96E5 /* citywalkMapView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = citywalkMapView.m; sourceTree = "<group>"; };
 		72D7853814221803009B96E5 /* City.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = City.h; sourceTree = "<group>"; };
 		72D7853914221803009B96E5 /* City.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = City.m; sourceTree = "<group>"; };
 		72D7862D142222AA009B96E5 /* api.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = api.html; sourceTree = "<group>"; };
@@ -233,8 +233,8 @@
 		72237DF41429B1F900257B9A /* RouteAnnotations */ = {
 			isa = PBXGroup;
 			children = (
-				72237DF51429B23200257B9A /* SBRouteAnnotation.h */,
-				72237DF61429B23200257B9A /* SBRouteAnnotation.m */,
+				72237DF51429B23200257B9A /* citywalkRouteAnnotation.h */,
+				72237DF61429B23200257B9A /* citywalkRouteAnnotation.m */,
 			);
 			name = RouteAnnotations;
 			sourceTree = "<group>";
@@ -252,8 +252,8 @@
 		727C7ABF1433243800A5E466 /* CheckPoints */ = {
 			isa = PBXGroup;
 			children = (
-				727C7ABA143323EE00A5E466 /* SBCheckPointViewController.h */,
-				727C7ABB143323EE00A5E466 /* SBCheckPointViewController.m */,
+				727C7ABA143323EE00A5E466 /* citywalkCheckPointViewController.h */,
+				727C7ABB143323EE00A5E466 /* citywalkCheckPointViewController.m */,
 			);
 			name = CheckPoints;
 			sourceTree = "<group>";
@@ -261,8 +261,8 @@
 		7292F9851434356400EE2EAD /* MapView */ = {
 			isa = PBXGroup;
 			children = (
-				72D7851214221574009B96E5 /* SBMapView.h */,
-				72D7851314221574009B96E5 /* SBMapView.m */,
+				72D7851214221574009B96E5 /* citywalkMapView.h */,
+				72D7851314221574009B96E5 /* citywalkMapView.m */,
 			);
 			name = MapView;
 			sourceTree = "<group>";
@@ -344,8 +344,8 @@
 			children = (
 				6889E93E17CCC092003D4115 /* Globals.h */,
 				6889E93F17CCC092003D4115 /* Globals.m */,
-				1D3623240D0F684500981E51 /* SBMapWithRouteAppDelegate.h */,
-				1D3623250D0F684500981E51 /* SBMapWithRouteAppDelegate.m */,
+				1D3623240D0F684500981E51 /* citywalkAppDelegate.h */,
+				1D3623250D0F684500981E51 /* citywalkAppDelegate.m */,
 			);
 			name = "App Delegate";
 			sourceTree = "<group>";
@@ -354,9 +354,9 @@
 			isa = PBXGroup;
 			children = (
 				28AD733E0D9D9553002E5188 /* MainWindow.xib */,
-				2899E5210DE3E06400AC0155 /* SBMapWithRouteViewController.xib */,
-				72D784DD14221280009B96E5 /* SBGoogleMap.xib */,
-				727C7ABC143323EE00A5E466 /* SBCheckPoints.xib */,
+				2899E5210DE3E06400AC0155 /* citywalkViewController.xib */,
+				72D784DD14221280009B96E5 /* citywalkGoogleMap.xib */,
+				727C7ABC143323EE00A5E466 /* citywalkCheckPoints.xib */,
 			);
 			name = Xib;
 			sourceTree = "<group>";
@@ -374,8 +374,8 @@
 		72D788A6142310A3009B96E5 /* Main Controller */ = {
 			isa = PBXGroup;
 			children = (
-				28D7ACF60DDB3853001CB0EB /* SBMapWithRouteViewController.h */,
-				28D7ACF70DDB3853001CB0EB /* SBMapWithRouteViewController.m */,
+				28D7ACF60DDB3853001CB0EB /* citywalkViewController.h */,
+				28D7ACF70DDB3853001CB0EB /* citywalkViewController.m */,
 			);
 			name = "Main Controller";
 			sourceTree = "<group>";
@@ -383,8 +383,8 @@
 		72D788A7142310AE009B96E5 /* Google MapController */ = {
 			isa = PBXGroup;
 			children = (
-				72D784DB14221280009B96E5 /* SBGoogleMap.h */,
-				72D784DC14221280009B96E5 /* SBGoogleMap.m */,
+				72D784DB14221280009B96E5 /* citywalkGoogleMap.h */,
+				72D784DC14221280009B96E5 /* citywalkGoogleMap.m */,
 			);
 			name = "Google MapController";
 			sourceTree = "<group>";
@@ -439,11 +439,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				28AD733F0D9D9553002E5188 /* MainWindow.xib in Resources */,
-				2899E5220DE3E06400AC0155 /* SBMapWithRouteViewController.xib in Resources */,
-				72D784DF14221280009B96E5 /* SBGoogleMap.xib in Resources */,
+				2899E5220DE3E06400AC0155 /* citywalkViewController.xib in Resources */,
+				72D784DF14221280009B96E5 /* citywalkGoogleMap.xib in Resources */,
 				72D7862E142222AA009B96E5 /* api.html in Resources */,
 				72D787BF14223C66009B96E5 /* iCon.png in Resources */,
-				727C7ABE143323EE00A5E466 /* SBCheckPoints.xib in Resources */,
+				727C7ABE143323EE00A5E466 /* citywalkCheckPoints.xib in Resources */,
 				6836976317C7567500F71929 /* notisfiction.mp3 in Resources */,
 				6889E94217CCCE88003D4115 /* locations.json in Resources */,
 				68572B9917CF6D1B003A545F /* MainWindow-iPad.xib in Resources */,
@@ -458,8 +458,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				1D60589B0D05DD56006BFB54 /* main.m in Sources */,
-				1D3623260D0F684500981E51 /* SBMapWithRouteAppDelegate.m in Sources */,
-				28D7ACF80DDB3853001CB0EB /* SBMapWithRouteViewController.m in Sources */,
+				1D3623260D0F684500981E51 /* citywalkAppDelegate.m in Sources */,
+				28D7ACF80DDB3853001CB0EB /* citywalkViewController.m in Sources */,
 				72D7844A14220F23009B96E5 /* NSObject+SBJSON.m in Sources */,
 				72D7844B14220F23009B96E5 /* NSString+SBJSON.m in Sources */,
 				72D7844C14220F23009B96E5 /* SBJSON.m in Sources */,
@@ -471,13 +471,13 @@
 				72D7846714220F8F009B96E5 /* UICGoogleMapsAPI.m in Sources */,
 				72D7846814220F8F009B96E5 /* UICGPolyline.m in Sources */,
 				72D7846914220F8F009B96E5 /* UICGRoute.m in Sources */,
-				72D784DE14221280009B96E5 /* SBGoogleMap.m in Sources */,
-				72D7851414221574009B96E5 /* SBMapView.m in Sources */,
+				72D784DE14221280009B96E5 /* citywalkGoogleMap.m in Sources */,
+				72D7851414221574009B96E5 /* citywalkMapView.m in Sources */,
 				72D7853A14221803009B96E5 /* City.m in Sources */,
-				72237DF71429B23200257B9A /* SBRouteAnnotation.m in Sources */,
+				72237DF71429B23200257B9A /* citywalkRouteAnnotation.m in Sources */,
 				727E1F35142B04F00048DE8D /* UICGCheckPoint.m in Sources */,
 				72AA5C311431A90B00301788 /* UICGRoutes.m in Sources */,
-				727C7ABD143323EE00A5E466 /* SBCheckPointViewController.m in Sources */,
+				727C7ABD143323EE00A5E466 /* citywalkCheckPointViewController.m in Sources */,
 				727C7C3D14334E2D00A5E466 /* JSONKit.m in Sources */,
 				6889E94017CCC092003D4115 /* Globals.m in Sources */,
 				6889E94617CDE9F7003D4115 /* DSTPickerView.m in Sources */,

@@ -1,23 +1,23 @@
 //
 //  SBGoogleMap.m
-//  SBMapWithRoute
+//  Citywalk
 //
-//  Created by Surya Kant on 15/09/11.
-//  Copyright 2011 __MyCompanyName__. All rights reserved.
+//  Created by JAkob Højgård Olsen
+//  Copyright 2013 Grafect All rights reserved.
 //
 
-#import "SBGoogleMap.h"
-#import "SBMapView.h"
-#import "SBRouteAnnotation.h"
+#import "citywalkGoogleMap.h"
+#import "citywalkMapView.h"
+#import "citywalkRouteAnnotation.h"
 #import "City.h"
 #import "UICGRoutes.h"
-#import "SBCheckPointViewController.h"
+#import "citywalkCheckPointViewController.h"
 #import <CoreLocation/CoreLocation.h>
 
 
 //#import "SBRouteDetailView.h"
 //#define myAppDelegate [[UIApplication sharedApplication] delegate]
-@interface SBGoogleMap()<CLLocationManagerDelegate>
+@interface citywalkGoogleMap()<CLLocationManagerDelegate>
 -(void)releaseAllViews;
 -(void)customInitialization;
 
@@ -25,7 +25,7 @@
 
 
 
-@implementation SBGoogleMap
+@implementation citywalkGoogleMap
 
 @synthesize map				= mMap;
 @synthesize startPoint		= mStartPoint;
@@ -87,7 +87,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 	self.title = @"Google Maps";
-	self.map = [[SBMapView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height)];
+	self.map = [[citywalkMapView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height)];
 	[self.view addSubview:mMap];
 	
 	self.view.backgroundColor = [UIColor blackColor];
@@ -110,10 +110,10 @@
     
     
    // NSLog(@"collectData:%@", annotationContent);
-    SBMapWithRouteViewController *mainController = [[SBMapWithRouteViewController alloc]init];
+    //citywalkViewController *mainController = [[citywalkViewController alloc]init];
     //NSMutableArray *newarray = mainController->locationsArray;
     //SecondViewController *secondViewController = [[SecondViewController alloc] initWithMutableArray:self.mytableinfo];
-    [mainController showmethedata];
+    //[mainController showmethedata];
    NSLog(@"collectData:%@", locationsArray_stored);
     
 
@@ -188,9 +188,9 @@
 		for(int idx = 0; idx < [_routeWayPoints1 count]-1; idx++)
 		{
 			
-			mBetweenAnnotation = [[[SBRouteAnnotation alloc] initWithCoordinate:[[_routeWayPoints1 objectAtIndex:idx]coordinate]
+			mBetweenAnnotation = [[[citywalkRouteAnnotation alloc] initWithCoordinate:[[_routeWayPoints1 objectAtIndex:idx]coordinate]
 																		  title:[mPlacetitles objectAtIndex:idx]
-																 annotationType:SBRouteAnnotationTypeWayPoint] autorelease];
+																 annotationType:citywalkRouteAnnotationTypeWayPoint] autorelease];
 			[self.annotationArray addObject:mBetweenAnnotation];
 		}
 		[mAnnotations addObject:mAnnotationArray];
@@ -203,7 +203,7 @@
 
 -(void)showCheckpoints
 {
-	SBCheckPointViewController *_Controller	= [[SBCheckPointViewController alloc]initWithNibName:@"SBCheckPoints" bundle:nil];
+	citywalkCheckPointViewController *_Controller	= [[citywalkCheckPointViewController alloc]initWithNibName:@"SBCheckPoints" bundle:nil];
 	[self.navigationController pushViewController:_Controller animated:YES];
 	NSMutableArray *arr = [[mDirections checkPoint] mPlaceTitle];
 	_Controller.mCheckPoints = arr ;
@@ -281,12 +281,12 @@
     [twoButtons release];
 	
 	//Add annotations of different colors based on initial and final places.
-	SBRouteAnnotation *startAnnotation = [[[SBRouteAnnotation alloc] initWithCoordinate:[[routePoints objectAtIndex:0] coordinate]
+	citywalkRouteAnnotation *startAnnotation = [[[citywalkRouteAnnotation alloc] initWithCoordinate:[[routePoints objectAtIndex:0] coordinate]
 																					title:mStartPoint
-																		   annotationType:SBRouteAnnotationTypeStart] autorelease];
-	SBRouteAnnotation *endAnnotation = [[[SBRouteAnnotation alloc] initWithCoordinate:[[routePoints lastObject] coordinate]
+																		   annotationType:citywalkRouteAnnotationTypeStart] autorelease];
+	citywalkRouteAnnotation *endAnnotation = [[[citywalkRouteAnnotation alloc] initWithCoordinate:[[routePoints lastObject] coordinate]
 																				  title:mEndPoint
-																		 annotationType:SBRouteAnnotationTypeEnd] autorelease];
+																		 annotationType:citywalkRouteAnnotationTypeEnd] autorelease];
 	
 	
 	[mMap.mapView addAnnotations:[NSArray arrayWithObjects:startAnnotation, endAnnotation,nil]];

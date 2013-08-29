@@ -1,15 +1,15 @@
 //
 //  SBCheckPoints.h
-//  SBMapWithRoute
+//  Citywalk
 //
-//  Created by Surya Kant on 28/09/11.
-//  Copyright 2011 __MyCompanyName__. All rights reserved.
+//  Created by JAkob Højgård Olsen
+//  Copyright 2013 Grafect All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
 
 
-@interface SBCheckPointViewController : UIViewController <UITableViewDelegate,UITableViewDataSource>{
+@interface citywalkCheckPointViewController : UIViewController <UITableViewDelegate,UITableViewDataSource>{
 
 	IBOutlet UITableView *mTable;
 	NSMutableArray *mCheckPoints;

@@ -6,10 +6,10 @@
 //  Copyright 2011 __MyCompanyName__. All rights reserved.
 //
 
-#import "SBMapWithRouteViewController.h"
+#import "citywalkViewController.h"
 #import "DSTPickerView.h"
-#import "SBMapView.h"
-@interface SBMapWithRouteViewController()<DSTPickerViewDataSource, DSTPickerViewDelegate, UIPickerViewDataSource, UIPickerViewDelegate>{
+#import "citywalkMapView.h"
+@interface citywalkViewController() <DSTPickerViewDataSource, DSTPickerViewDelegate, UIPickerViewDataSource, UIPickerViewDelegate>{
 
 UIPickerView *uiPicker;
 }
@@ -18,7 +18,7 @@ UIPickerView *uiPicker;
 @end
 
 
-@implementation SBMapWithRouteViewController
+@implementation citywalkViewController
 
 @synthesize sourceCity		= mSourceCity;
 @synthesize destinationCity1 = mDestinationCity1;
@@ -286,7 +286,7 @@ locationsArray = [[NSMutableArray alloc] init];
 	//[mSourceCity resignFirstResponder];
 	[mDestinationCity1 resignFirstResponder];
 	
-	SBGoogleMap *_Controller	= [[SBGoogleMap alloc]initWithNibName:@"SBGoogleMap" bundle:nil];
+	citywalkGoogleMap *_Controller	= [[citywalkGoogleMap alloc]initWithNibName:@"citywalkGoogleMap" bundle:nil];
 	
 	_Controller.startPoint		= mSourceCity.text;
 	self.DestinationCityArray = [[NSMutableArray alloc]init];

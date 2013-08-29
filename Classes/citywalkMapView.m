@@ -1,19 +1,19 @@
 //
 //  SBMapView.m
-//  SBMapWithRoute
+//  Citywalk
 //
-//  Created by Surya Kant on 15/09/11.
-//  Copyright 2011 __MyCompanyName__. All rights reserved.
+//  Created by JAkob Højgård Olsen
+//  Copyright 2013 Grafect All rights reserved.
 //
 
-#import "SBMapView.h"
-#import "SBRouteAnnotation.h"
+#import "citywalkMapView.h"
+#import "citywalkRouteAnnotation.h"
 #import <CoreLocation/CoreLocation.h>
-#import "SBMapWithRouteViewController.h"
+#import "citywalkViewController.h"
 
-@interface SBMapView()<CLLocationManagerDelegate>
+@interface citywalkMapView()<CLLocationManagerDelegate>
 @end
-@implementation SBMapView
+@implementation citywalkMapView
 @synthesize mapView = mMapView;
 @synthesize routeLine = mrouteLine;
 @synthesize routeLineView = mrouteLineView;
@@ -239,15 +239,15 @@
 - (MKAnnotationView *)mapView:(MKMapView *)mapView viewForAnnotation:(id<MKAnnotation>)annotation {
 	static NSString *identifier = @"RoutePinAnnotation";
 	
-	if ([annotation isKindOfClass:[SBRouteAnnotation class]]) {
+	if ([annotation isKindOfClass:[citywalkRouteAnnotation class]]) {
 		MKPinAnnotationView *pinAnnotation = (MKPinAnnotationView *)[mapView dequeueReusableAnnotationViewWithIdentifier:identifier];
 		if(!pinAnnotation) {
 			pinAnnotation = [[[MKPinAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:identifier] autorelease];
 		}
 		
-		if ([(SBRouteAnnotation *)annotation annotationType] == SBRouteAnnotationTypeWayPoint) {
+		if ([(citywalkRouteAnnotation *)annotation annotationType] == citywalkRouteAnnotationTypeWayPoint) {
 			pinAnnotation.pinColor = MKPinAnnotationColorGreen;
-		} else if ([(SBRouteAnnotation *)annotation annotationType] == SBRouteAnnotationTypeEnd) {
+		} else if ([(citywalkRouteAnnotation *)annotation annotationType] == citywalkRouteAnnotationTypeEnd) {
 			pinAnnotation.pinColor = MKPinAnnotationColorRed;
 		} else {
 			pinAnnotation.pinColor = MKPinAnnotationColorGreen;
@@ -266,7 +266,7 @@
 {
 	NSArray *pinTitle=mMapView.annotations;
 	for (int idx = 0 ; idx < [pinTitle count]; idx ++) {
-		SBRouteAnnotation *pinTitle1 = [pinTitle objectAtIndex:idx];
+		citywalkRouteAnnotation *pinTitle1 = [pinTitle objectAtIndex:idx];
 		NSString *pinTitle11 = pinTitle1.title;
 		NSLog(@" pinTitle1 %@",pinTitle11);
 
