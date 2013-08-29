@@ -1,0 +1,9 @@
+//
+// Prefix header for all source files of the 'SBMapWithRoute' target in the 'SBMapWithRoute' project
+//
+
+#ifdef __OBJC__
+    #import <Foundation/Foundation.h>
+    #import <UIKit/UIKit.h>
+#import "Globals.h"
+#endif
