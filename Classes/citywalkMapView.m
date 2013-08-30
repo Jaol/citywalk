@@ -174,7 +174,7 @@
        
         NSNumber *longitude = locationEntry[@"longitude"];
         NSNumber *latitude = locationEntry[@"latitude"];
-        NSString *locationName = locationEntry[@"name"];
+        NSString *locationName = locationEntry[@"annotationTitle"];
         
          CLLocation *location = [[CLLocation alloc] initWithLatitude:[latitude doubleValue] longitude:[longitude doubleValue]];
         NSAssert(location, @"failure to create location");

@@ -3,43 +3,45 @@
              {
              "trip": [
                       {
-                      "routeTitle": "1 Route",
-                      "description":"description text 1"
+                      "routeTitle": "Route through the old streets",
+                      "description":"This route goes throug some interesting spots, where you will hear stories about king and queens, how the city was build and much more."
                       },
                       { "coordinates":[
                                        
+                                      
                                        {
-                                       "name": "WIDEX a/s",
-                                       "latitude": 55.84029,
-                                       "longitude": 12.313957
-                                       },
-                                       {
-                                       "name": "WIDEXROUNDABOUT",
+                                       "googlePoint": "Store kongensgade",
+                                       "annotationTitle": "Store Kongensgade",
                                        "latitude": 55.839229,
                                        "longitude": 12.312863
                                        },
                                        {
-                                       "name": "HIGHWAYNYMOLLEVEJ",
+                                       "googlePoint": "HIGHWAYNYMOLLEVEJ",
+                                       "annotationTitle": "test",
                                        "latitude": 55.844157,
                                        "longitude": 12.336466
                                        },
                                        {
-                                       "name": "HIGHWAYMORKHOJVEJ",
+                                       "googlePoint": "HIGHWAYMORKHOJVEJ",
+                                       "annotationTitle": "test",
                                        "latitude": 55.729551,
                                        "longitude": 12.476606
                                        },
                                        {
-                                       "name": "FREDERIKSSUNDSVEJ",
+                                       "googlePoint": "FREDERIKSSUNDSVEJ",
+                                       "annotationTitle": "test",
                                        "latitude": 55.712849,
                                        "longitude": 12.468109
                                        },
                                        {
-                                       "name": "ISLEVHUSVEJ",
+                                       "googlePoint": "ISLEVHUSVEJ",
+                                       "annotationTitle": "test",
                                        "latitude": 55.70782,
                                        "longitude": 12.458839
                                        },
                                        {
-                                       "name": "Brovænget 25, 2700",
+                                       "googlePoint": "holmbladsgade 10",
+                                       "annotationTitle": "test",
                                        "latitude": 55.70782,
                                        "longitude": 12.458839
                                        }
@@ -51,43 +53,38 @@
              {
              "trip": [
                       {
-                      "routeTitle": "2 Route",
-                      "description":"description text 2"
+                      "routeTitle": "Route over the brigde area",
+                      "description":"This route takes you through the brigde areas and tells the story of how they where made"
                       },
                       { "coordinates":[
                                        
                                        {
-                                       "name": "WIDEX a/s",
-                                       "latitude": 55.84029,
-                                       "longitude": 12.313957
-                                       },
-                                       {
-                                       "name": "WIDEXROUNDABOUT",
-                                       "latitude": 55.839229,
-                                       "longitude": 12.312863
-                                       },
-                                       {
-                                       "name": "HIGHWAYNYMOLLEVEJ",
+                                       "googlePoint": "islevhusvej",
+                                       "annotationTitle": "test",
                                        "latitude": 55.844157,
                                        "longitude": 12.336466
                                        },
                                        {
-                                       "name": "HIGHWAYMORKHOJVEJ",
+                                       "googlePoint": "HIGHWAYMORKHOJVEJ",
+                                       "annotationTitle": "test",
                                        "latitude": 55.729551,
                                        "longitude": 12.476606
                                        },
                                        {
-                                       "name": "FREDERIKSSUNDSVEJ",
+                                       "googlePoint": "FREDERIKSSUNDSVEJ",
+                                       "annotationTitle": "test",
                                        "latitude": 55.712849,
                                        "longitude": 12.468109
                                        },
                                        {
-                                       "name": "ISLEVHUSVEJ",
+                                       "googlePoint": "ISLEVHUSVEJ",
+                                       "annotationTitle": "test",
                                        "latitude": 55.70782,
                                        "longitude": 12.458839
                                        },
                                        {
-                                       "name": "Brovænget 25, 2700",
+                                       "googlePoint": "holmbladsgade 10",
+                                       "annotationTitle": "test",
                                        "latitude": 55.70782,
                                        "longitude": 12.458839
                                        }
@@ -99,43 +96,32 @@
              {
              "trip": [
                       {
-                      "routeTitle": "3 Route",
-                      "description":"description text 3"
+                      "routeTitle": "The little mermaide",
+                      "description":"This route goes to the harbour area and Langeline, home of the little mermaide."
                       },
                       { "coordinates":[
                                        
-                                       {
-                                       "name": "WIDEX a/s",
-                                       "latitude": 55.84029,
-                                       "longitude": 12.313957
-                                       },
-                                       {
-                                       "name": "WIDEXROUNDABOUT",
-                                       "latitude": 55.839229,
-                                       "longitude": 12.312863
-                                       },
-                                       {
-                                       "name": "HIGHWAYNYMOLLEVEJ",
-                                       "latitude": 55.844157,
-                                       "longitude": 12.336466
-                                       },
-                                       {
-                                       "name": "HIGHWAYMORKHOJVEJ",
+                                                                          {
+                                       "googlePoint": "kgs. nytorv, copenhagen",
+                                       "annotationTitle": "test",
                                        "latitude": 55.729551,
                                        "longitude": 12.476606
                                        },
                                        {
-                                       "name": "FREDERIKSSUNDSVEJ",
+                                       "googlePoint": "FREDERIKSSUNDSVEJ",
+                                       "annotationTitle": "test",
                                        "latitude": 55.712849,
                                        "longitude": 12.468109
                                        },
                                        {
-                                       "name": "ISLEVHUSVEJ",
+                                       "googlePoint": "ISLEVHUSVEJ",
+                                       "annotationTitle": "test",
                                        "latitude": 55.70782,
                                        "longitude": 12.458839
                                        },
                                        {
-                                       "name": "Brovænget 25, 2700",
+                                       "googlePoint": "holmbladsgade 10",
+                                       "annotationTitle": "test",
                                        "latitude": 55.70782,
                                        "longitude": 12.458839
                                        }
@@ -147,43 +133,50 @@
              {
              "trip": [
                       {
-                      "routeTitle": "4 Route",
-                      "description":"description text 4"
+                      "routeTitle": "Christiansborg",
+                      "description":"This route goes to the goverment buildings and reveals the story of this country"
                       },
                       { "coordinates":[
                                        
                                        {
-                                       "name": "WIDEXa/s",
+                                       "googlePoint": "WIDEX a/s",
+                                       "annotationTitle": "test",
                                        "latitude": 55.84029,
                                        "longitude": 12.313957
                                        },
                                        {
-                                       "name": "WIDEXROUNDABOUT",
+                                       "googlePoint": "WIDEXROUNDABOUT",
+                                       "annotationTitle": "test",
                                        "latitude": 55.839229,
                                        "longitude": 12.312863
                                        },
                                        {
-                                       "name": "HIGHWAYNYMOLLEVEJ",
+                                       "googlePoint": "HIGHWAYNYMOLLEVEJ",
+                                       "annotationTitle": "test",
                                        "latitude": 55.844157,
                                        "longitude": 12.336466
                                        },
                                        {
-                                       "name": "HIGHWAYMORKHOJVEJ",
+                                       "googlePoint": "HIGHWAYMORKHOJVEJ",
+                                       "annotationTitle": "test",
                                        "latitude": 55.729551,
                                        "longitude": 12.476606
                                        },
                                        {
-                                       "name": "FREDERIKSSUNDSVEJ",
+                                       "googlePoint": "FREDERIKSSUNDSVEJ",
+                                       "annotationTitle": "test",
                                        "latitude": 55.712849,
                                        "longitude": 12.468109
                                        },
                                        {
-                                       "name": "ISLEVHUSVEJ",
+                                       "googlePoint": "ISLEVHUSVEJ",
+                                       "annotationTitle": "test",
                                        "latitude": 55.70782,
                                        "longitude": 12.458839
                                        },
                                        {
-                                       "name": "Brovænget 25, 2700",
+                                       "googlePoint": "holmbladsgade 10",
+                                       "annotationTitle": "test",
                                        "latitude": 55.70782,
                                        "longitude": 12.458839
                                        }

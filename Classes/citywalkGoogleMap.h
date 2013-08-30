@@ -35,10 +35,11 @@
 	NSArray *			mRouteArray;
 	IBOutlet citywalkRouteDetailView*  mRouteDetail;
     NSMutableArray *annotationContent;
+    NSArray *wayPoints;
   }
 
 
-
+@property (nonatomic, retain) NSArray *wayPoints;
 @property (nonatomic, strong) citywalkViewController *firstController;
 @property (nonatomic,retain) citywalkMapView* map;
 @property (nonatomic,retain) NSString* startPoint;

@@ -38,6 +38,7 @@
 @synthesize locArray;
 @synthesize annotationContent;
 @synthesize firstController;
+@synthesize wayPoints;
 //Invoked when the class is instantiated in XIB
 -(id)initWithCoder:(NSCoder*)aDecoder
 {
@@ -164,7 +165,21 @@
 	options.travelMode = mTravelMode;
 	City *mFirstCity = [[[City alloc]init] autorelease];
 	mFirstCity.mCityName = mStartPoint;
-	[mDirections loadWithStartPoint:mFirstCity.mCityName endPoint:destination options:options];
+    
+    
+    
+    if ([wayPoints count] > 0) {
+        NSArray *routePoints = [NSArray arrayWithObject:mFirstCity.mCityName];
+		routePoints = [routePoints arrayByAddingObjectsFromArray:wayPoints];
+		routePoints = [routePoints arrayByAddingObject:destination];
+		[mDirections loadFromWaypoints:routePoints options:options];
+	} else {
+		[mDirections loadWithStartPoint:mFirstCity.mCityName endPoint:destination options:options];
+	}
+
+    
+    
+	//[mDirections loadWithStartPoint:mFirstCity.mCityName endPoint:destination options:options];
        
 }
 
@@ -285,8 +300,26 @@
 																				  title:mEndPoint
 																		 annotationType:citywalkRouteAnnotationTypeEnd] autorelease];
 	
-	
-	[mMap.mapView addAnnotations:[NSArray arrayWithObjects:startAnnotation, endAnnotation,nil]];
+    // NEW setup
+    
+    if ([wayPoints count] > 0) {
+		NSInteger numberOfRoutes = [mDirections numberOfRoutes];
+		for (NSInteger index = 0; index < numberOfRoutes; index++) {
+			UICGRoute *route = [mDirections routeAtIndex:index];
+			CLLocation *location = [route endLocation];
+			citywalkRouteAnnotation *annotation = [[[citywalkRouteAnnotation alloc] initWithCoordinate:[location coordinate]
+																					   title:[[route endGeocode] objectForKey:@"address"]
+																			  annotationType:citywalkRouteAnnotationTypeWayPoint] autorelease];
+			[mMap.mapView addAnnotation:annotation];
+		}
+	}
+    
+	[mMap.mapView addAnnotations:[NSArray arrayWithObjects:startAnnotation, endAnnotation, nil]];
+
+    
+    
+	// ORG ADD
+	//[mMap.mapView addAnnotations:[NSArray arrayWithObjects:startAnnotation, endAnnotation,nil]];
     
     
     // ADD ALL ANNONTATIONS
@@ -303,7 +336,7 @@
         
         NSNumber *longitude = object[@"longitude"];
         NSNumber *latitude = object[@"latitude"];
-        NSString *locationName = object[@"name"];
+        NSString *locationName = object[@"annotationTitle"];
         
         
         annotationCoord.longitude = [longitude doubleValue];
@@ -337,7 +370,7 @@
     [mLoadBtn release];
     [mMap release];
 	[self releaseAllViews];
-
+[wayPoints release];
     [super dealloc];
 }
 

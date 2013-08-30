@@ -46,6 +46,7 @@
 @property (nonatomic, retain) IBOutlet UISegmentedControl *travelMode;
 @property (nonatomic, retain) NSMutableArray *DestinationCityArray;
 @property   (nonatomic, retain)NSArray *locationArray_forward;
+
 #pragma mark ButtonAction
 
 -(IBAction)showGoogleMap:(id)sender;		//Action for moving in next controller ie. GoogleMapController

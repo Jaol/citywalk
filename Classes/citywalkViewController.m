@@ -38,12 +38,10 @@ static const CGFloat kPickerDismissViewHiddenOpacity = 0.666f;
 	if( self)
 	{
         
-       		[self customInitialization];
-         //locationsArray = [[NSMutableArray alloc]init];
+       	[self customInitialization];
         [self collectData];
 	}
-    
-locationsArray = [[NSMutableArray alloc] init];
+    locationsArray = [[NSMutableArray alloc] init];
     arrayForMenu = [[NSMutableArray alloc]init];
     descriptionArray = [[NSMutableArray alloc]init];
     return self;
@@ -101,18 +99,19 @@ locationsArray = [[NSMutableArray alloc] init];
     NSArray *firstLocationSet = [[jsonArray_mother valueForKeyPath:@"trip"] objectAtIndex:0];
     
     // get start position
-    NSString *findFirstLocation = [[[[firstLocationSet valueForKey:@"coordinates" ] objectAtIndex:1] valueForKeyPath:@"name"] objectAtIndex:0];
+    NSString *findFirstLocation = [[[[firstLocationSet valueForKey:@"coordinates" ] objectAtIndex:1] valueForKeyPath:@"googlePoint"] objectAtIndex:0];
     // get destination
-     NSString *destinationLocation = [[[[firstLocationSet valueForKey:@"coordinates" ] objectAtIndex:1] valueForKeyPath:@"name"] lastObject];
+     NSString *destinationLocation = [[[[firstLocationSet valueForKey:@"coordinates" ] objectAtIndex:1] valueForKeyPath:@"googlePoint"] lastObject];
 
-   NSString *desLabel = descriptionArray[0];
+   //NSString *desLabel = descriptionArray[0];
 
     self.sourceCity.text = findFirstLocation;
     self.destinationCity1.text = destinationLocation;
-    self.descriptionLabel.text = desLabel;
-    //NSLog(@"jsonArray - %@",holdArray);
-    
-    // Store array for use in other methods
+    self.descriptionLabel.text = descriptionArray[0];
+
+    firstLocation = findFirstLocation;
+    lastLocation = [[[[firstLocationSet valueForKey:@"coordinates" ] objectAtIndex:1] valueForKeyPath:@"googlePoint"] lastObject];
+
   
     [locationsArray_stored  addObjectsFromArray:[[firstLocationSet valueForKey:@"coordinates"] objectAtIndex:1]];
 
@@ -120,7 +119,10 @@ locationsArray = [[NSMutableArray alloc] init];
     [self initUIPicker];
     
     locationsArray = locationsArray_stored;
-    locationData_stored = locationsArray_stored;
+    [locationData_stored addObjectsFromArray:[jsonArray_mother valueForKeyPath:@"trip"]];
+    
+    NSLog(@"init locationData_stored: %@",locationData_stored);
+    
     return locationsArray_stored;
 }
 
@@ -130,9 +132,24 @@ locationsArray = [[NSMutableArray alloc] init];
     // update textfields
     
     // get coordinates for new route
+   //id *i = &data;
+    //NSLog(@"locationData_stored %@", [[[locationData_stored objectAtIndex:data] valueForKey:@"coordinates"]objectAtIndex:1]);
+    //NSLog(@"data:%i",data);
     
-    //NSLog(@"locationData_stored %@",locationData_stored);
-    NSLog(@"data:%i",data);
+        // get start position
+    firstLocation = [[[[[locationData_stored objectAtIndex:data] valueForKey:@"coordinates"] objectAtIndex:1] valueForKeyPath:@"googlePoint"] objectAtIndex:0];
+    // get destination
+    lastLocation = [[[[[locationData_stored objectAtIndex:data] valueForKey:@"coordinates"] objectAtIndex:1] valueForKeyPath:@"googlePoint"] lastObject];
+    //NSLog(@"data: first: %@, last: %@,", getFirstLocation, getDestinationLocation);
+    self.sourceCity.text = [arrayForMenu objectAtIndex:data];
+    //self.destinationCity1.text = getDestinationLocation;
+    
+    NSString *getDesc = [descriptionArray objectAtIndex:data];
+     self.descriptionLabel.text = getDesc;
+    
+    locationsArray_stored = [[[locationData_stored objectAtIndex:data] valueForKey:@"coordinates"]objectAtIndex:1];
+    
+    locationsArray = locationsArray_stored;
 }
 
 -(void)initUIPicker{
@@ -140,20 +157,12 @@ locationsArray = [[NSMutableArray alloc] init];
     
         CGFloat height = floorf(self.view.bounds.size.height / 2.0);
 
-    uiPicker = [[UIPickerView alloc] initWithFrame:CGRectMake(0, 480, self.view.bounds.size.width, height)];
+    uiPicker = [[UIPickerView alloc] initWithFrame:CGRectMake(0, self.view.bounds.size.height+480, self.view.bounds.size.width, height)];
     [uiPicker setShowsSelectionIndicator:YES];
     [uiPicker setDelegate:self];
     [uiPicker setDataSource:self];
     [self.view.window addSubview:uiPicker];
     
-    
-
-    
-    
-
-
-
-
 }
 
 - (IBAction)openPicker:(id)sender {
@@ -164,17 +173,16 @@ locationsArray = [[NSMutableArray alloc] init];
     {
         NSLog(@"open");
     [UIView animateWithDuration:0.3 animations:^{
-        uiPicker.frame = CGRectMake(uiPicker.frame.origin.x,
-                                       300, //Displays the view a little past the
-                                       //center ling of the screen
-                                       uiPicker.frame.size.width,
-                                       uiPicker.frame.size.height);
+        uiPicker.frame = CGRectMake(0.0,
+                                    self.view.bounds.size.height-uiPicker.frame.size.height+63,
+                                    uiPicker.frame.size.width,
+                                    uiPicker.frame.size.height);
     }];
         
         self.touchRecognizer = [[UIControl alloc]initWithFrame:self.view.window.bounds];
         
         UILabel *txt_dismisPicker= [[UILabel alloc]initWithFrame:CGRectMake(75, 75, self.view.bounds.size.width/2, 50)];
-        txt_dismisPicker.textAlignment = UITextAlignmentCenter;
+        txt_dismisPicker.textAlignment = NSTextAlignmentCenter;
         [self.touchRecognizer addTarget:self action:@selector(touchedOutsidePicker:) forControlEvents:UIControlEventTouchUpInside];
         self.touchRecognizer.backgroundColor = [UIColor blackColor];
         txt_dismisPicker.backgroundColor    = [UIColor clearColor];
@@ -189,7 +197,7 @@ locationsArray = [[NSMutableArray alloc] init];
         NSLog(@"CLOSE");
         [UIView animateWithDuration:0.3 animations:^{
             uiPicker.frame = CGRectMake(uiPicker.frame.origin.x,
-                                           480, //Displays the view off the screen
+                                           self.view.bounds.size.height+286, //Displays the view off the screen
                                            uiPicker.frame.size.width,
                                            uiPicker.frame.size.height);
         }];
@@ -284,25 +292,48 @@ locationsArray = [[NSMutableArray alloc] init];
 -(IBAction)showGoogleMap:(id)sender
 {
 	//[mSourceCity resignFirstResponder];
-	[mDestinationCity1 resignFirstResponder];
+	//[mDestinationCity1 resignFirstResponder];
 	
 	citywalkGoogleMap *_Controller	= [[citywalkGoogleMap alloc]initWithNibName:@"citywalkGoogleMap" bundle:nil];
 	
-	_Controller.startPoint		= mSourceCity.text;
-	self.DestinationCityArray = [[NSMutableArray alloc]init];
-	if (mDestinationCity1.text != NULL ) {
+	//_Controller.startPoint = mSourceCity.text;
+	_Controller.startPoint  = firstLocation;//[[[[[locationData_stored objectAtIndex:data] valueForKey:@"coordinates"] objectAtIndex:1] valueForKeyPath:@"name"] objectAtIndex:0];
+    NSLog(@"_Controller.startPoint: %@",_Controller.startPoint);
+    
+    self.DestinationCityArray = [[NSMutableArray alloc]init];
+	/*
+    if (mDestinationCity1.text != NULL ) {
 		[DestinationCityArray addObject:mDestinationCity1.text];
 		
 	}
+	*/
+    [DestinationCityArray addObject:lastLocation];
+	//_Controller.destination = DestinationCityArray;
+    _Controller.destination = DestinationCityArray;//[[[[[locationData_stored objectAtIndex:data] valueForKey:@"coordinates"] objectAtIndex:1] valueForKeyPath:@"name"] objectAtIndex:0];
 	
-	_Controller.destination = DestinationCityArray;
-	//if (mTravelMode.selectedSegmentIndex == 0) {
-	//	_Controller.travelMode	= UICGTravelModeDriving;
-	//} else {
-	
-		_Controller.travelMode	= UICGTravelModeWalking;
-	//}
+    // insert waypoints
     
+    // add display name for annotation and a direction name for google to use
+    
+    NSMutableArray *WP = [[[[locationData_stored objectAtIndex:1] valueForKey:@"coordinates"] objectAtIndex:1] valueForKeyPath:@"googlePoint"];
+    
+    NSMutableArray *wayPoints = [NSMutableArray arrayWithCapacity:[WP count]];
+    
+    NSLog(@"wayPoints: %@", WP);
+    
+/*
+    for (id wayPoints in WP) {
+       
+            [wayPoints addObject:wayPoints];
+       
+    }
+ */
+    NSLog(@"wayPoints ARRAY: %@", wayPoints);
+    _Controller.wayPoints = WP;
+    
+    
+		_Controller.travelMode	= UICGTravelModeWalking;
+	   
        
 	[self.navigationController pushViewController:_Controller animated:YES];
 	[_Controller release];

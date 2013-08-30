@@ -13,6 +13,7 @@
 
 NSMutableArray *locationsArray_stored;
 NSMutableArray *locationData_stored;
-
+NSString *firstLocation;
+NSMutableArray *lastLocation;
 
 @end
