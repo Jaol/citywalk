@@ -1,9 +1,9 @@
 //
 //  Globals.m
-//  SBMapWithRoute
+//  Citywalk
 //
-//  Created by jaol@widex.com on 8/27/13.
-//
+//  Created by JAkob Højgård Olsen
+//  Copyright 2013 Grafect All rights reserved.
 //
 
 #import "Globals.h"

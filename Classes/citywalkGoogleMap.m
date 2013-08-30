@@ -14,9 +14,6 @@
 #import "citywalkCheckPointViewController.h"
 #import <CoreLocation/CoreLocation.h>
 
-
-//#import "SBRouteDetailView.h"
-//#define myAppDelegate [[UIApplication sharedApplication] delegate]
 @interface citywalkGoogleMap()<CLLocationManagerDelegate>
 -(void)releaseAllViews;
 -(void)customInitialization;
@@ -203,7 +200,7 @@
 
 -(void)showCheckpoints
 {
-	citywalkCheckPointViewController *_Controller	= [[citywalkCheckPointViewController alloc]initWithNibName:@"SBCheckPoints" bundle:nil];
+	citywalkCheckPointViewController *_Controller	= [[citywalkCheckPointViewController alloc]initWithNibName:@"citywalkCheckPoints" bundle:nil];
 	[self.navigationController pushViewController:_Controller animated:YES];
 	NSMutableArray *arr = [[mDirections checkPoint] mPlaceTitle];
 	_Controller.mCheckPoints = arr ;

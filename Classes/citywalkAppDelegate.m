@@ -23,6 +23,7 @@
 
     // Add the view controller's view to the window and display.
 	nav = [[UINavigationController alloc]initWithRootViewController:viewController];
+    [self.window setRootViewController:viewController];
     [self.window addSubview:nav.view];
     [self.window makeKeyAndVisible];
     

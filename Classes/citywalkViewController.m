@@ -1,9 +1,9 @@
 //
-//  SBMapWithRouteViewController.m
-//  SBMapWithRoute
+//  ViewController.m
+//  Citywalk
 //
-//  Created by Surya Kant on 15/09/11.
-//  Copyright 2011 __MyCompanyName__. All rights reserved.
+//  Created by JAkob Højgård Olsen
+//  Copyright 2013 Grafect All rights reserved.
 //
 
 #import "citywalkViewController.h"
@@ -120,7 +120,7 @@ locationsArray = [[NSMutableArray alloc] init];
     [self initUIPicker];
     
     locationsArray = locationsArray_stored;
-    
+    locationData_stored = locationsArray_stored;
     return locationsArray_stored;
 }
 
@@ -131,7 +131,7 @@ locationsArray = [[NSMutableArray alloc] init];
     
     // get coordinates for new route
     
-    
+    //NSLog(@"locationData_stored %@",locationData_stored);
     NSLog(@"data:%i",data);
 }
 

@@ -12,16 +12,15 @@
 		1D60589F0D05DD5A006BFB54 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D30AB110D05D00D00671497 /* Foundation.framework */; };
 		1DF5F4E00D08C38300B7A737 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DF5F4DF0D08C38300B7A737 /* UIKit.framework */; };
 		288765A50DF7441C002DB57D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 288765A40DF7441C002DB57D /* CoreGraphics.framework */; };
-		2899E5220DE3E06400AC0155 /* citywalkViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2899E5210DE3E06400AC0155 /* citywalkViewController.xib */; };
 		28AD733F0D9D9553002E5188 /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 28AD733E0D9D9553002E5188 /* MainWindow.xib */; };
 		28D7ACF80DDB3853001CB0EB /* citywalkViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 28D7ACF70DDB3853001CB0EB /* citywalkViewController.m */; };
 		6836976117C7558600F71929 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6836976017C7558600F71929 /* AVFoundation.framework */; };
 		6836976317C7567500F71929 /* notisfiction.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 6836976217C7567500F71929 /* notisfiction.mp3 */; };
-		68572B9917CF6D1B003A545F /* MainWindow-iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = 68572B9817CF6D1B003A545F /* MainWindow-iPad.xib */; };
 		6889E94017CCC092003D4115 /* Globals.m in Sources */ = {isa = PBXBuildFile; fileRef = 6889E93F17CCC092003D4115 /* Globals.m */; };
 		6889E94217CCCE88003D4115 /* locations.json in Resources */ = {isa = PBXBuildFile; fileRef = 6889E94117CCCE88003D4115 /* locations.json */; };
 		6889E94617CDE9F7003D4115 /* DSTPickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6889E94517CDE9F7003D4115 /* DSTPickerView.m */; };
 		6889E94817CDEA5D003D4115 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6889E94717CDEA5D003D4115 /* AudioToolbox.framework */; };
+		68D740F517CF93B6007D8131 /* citywalkViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2899E5210DE3E06400AC0155 /* citywalkViewController.xib */; };
 		72237DF71429B23200257B9A /* citywalkRouteAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 72237DF61429B23200257B9A /* citywalkRouteAnnotation.m */; };
 		727C7ABD143323EE00A5E466 /* citywalkCheckPointViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 727C7ABB143323EE00A5E466 /* citywalkCheckPointViewController.m */; };
 		727C7ABE143323EE00A5E466 /* citywalkCheckPoints.xib in Resources */ = {isa = PBXBuildFile; fileRef = 727C7ABC143323EE00A5E466 /* citywalkCheckPoints.xib */; };
@@ -64,7 +63,6 @@
 		32CA4F630368D1EE00C91783 /* CityWalk_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CityWalk_Prefix.pch; sourceTree = "<group>"; };
 		6836976017C7558600F71929 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		6836976217C7567500F71929 /* notisfiction.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = notisfiction.mp3; sourceTree = "<group>"; };
-		68572B9817CF6D1B003A545F /* MainWindow-iPad.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = "MainWindow-iPad.xib"; path = "iPad/MainWindow-iPad.xib"; sourceTree = "<group>"; };
 		6889E93E17CCC092003D4115 /* Globals.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Globals.h; sourceTree = "<group>"; };
 		6889E93F17CCC092003D4115 /* Globals.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Globals.m; sourceTree = "<group>"; };
 		6889E94117CCCE88003D4115 /* locations.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = locations.json; sourceTree = "<group>"; };
@@ -165,7 +163,6 @@
 				080E96DDFE201D6D7F000001 /* Classes */,
 				29B97315FDCFA39411CA2CEA /* Other Sources */,
 				29B97317FDCFA39411CA2CEA /* Resources */,
-				68572B9717CF6D19003A545F /* iPad */,
 				29B97323FDCFA39411CA2CEA /* Frameworks */,
 				19C28FACFE9D520D11CA2CBB /* Products */,
 			);
@@ -202,14 +199,6 @@
 				72D784A41422108F009B96E5 /* MapKit.framework */,
 			);
 			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		68572B9717CF6D19003A545F /* iPad */ = {
-			isa = PBXGroup;
-			children = (
-				68572B9817CF6D1B003A545F /* MainWindow-iPad.xib */,
-			);
-			name = iPad;
 			sourceTree = "<group>";
 		};
 		6889E94317CDE9F7003D4115 /* picker */ = {
@@ -414,6 +403,9 @@
 /* Begin PBXProject section */
 		29B97313FDCFA39411CA2CEA /* Project object */ = {
 			isa = PBXProject;
+			attributes = {
+				ORGANIZATIONNAME = Grafect;
+			};
 			buildConfigurationList = C01FCF4E08A954540054247B /* Build configuration list for PBXProject "CityWalk" */;
 			compatibilityVersion = "Xcode 3.1";
 			developmentRegion = English;
@@ -438,15 +430,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				68D740F517CF93B6007D8131 /* citywalkViewController.xib in Resources */,
 				28AD733F0D9D9553002E5188 /* MainWindow.xib in Resources */,
-				2899E5220DE3E06400AC0155 /* citywalkViewController.xib in Resources */,
 				72D784DF14221280009B96E5 /* citywalkGoogleMap.xib in Resources */,
 				72D7862E142222AA009B96E5 /* api.html in Resources */,
 				72D787BF14223C66009B96E5 /* iCon.png in Resources */,
 				727C7ABE143323EE00A5E466 /* citywalkCheckPoints.xib in Resources */,
 				6836976317C7567500F71929 /* notisfiction.mp3 in Resources */,
 				6889E94217CCCE88003D4115 /* locations.json in Resources */,
-				68572B9917CF6D1B003A545F /* MainWindow-iPad.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -506,7 +497,7 @@
 				PROVISIONING_PROFILE = "416F02D5-9091-4F8C-A374-C2EFA6724BE3";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "416F02D5-9091-4F8C-A374-C2EFA6724BE3";
 				SEPARATE_STRIP = NO;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -524,7 +515,7 @@
 				PRODUCT_NAME = CityWalk;
 				PROVISIONING_PROFILE = "416F02D5-9091-4F8C-A374-C2EFA6724BE3";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "416F02D5-9091-4F8C-A374-C2EFA6724BE3";
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
