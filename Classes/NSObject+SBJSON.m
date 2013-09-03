@@ -44,12 +44,10 @@
 - (NSString *)JSONRepresentation {
     SBJsonWriter *jsonWriter = [SBJsonWriter new];    
     NSString *json = [jsonWriter stringWithObject:self];
-   
-    if (json)
+    if (!json)
         NSLog(@"-JSONRepresentation failed. Error trace is: %@", [jsonWriter errorTrace]);
     [jsonWriter release];
-   
-     return json;
+    return json;
 }
 
 @end

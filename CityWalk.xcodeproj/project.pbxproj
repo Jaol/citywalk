@@ -25,6 +25,8 @@
 		6889E94217CCCE88003D4115 /* locations.json in Resources */ = {isa = PBXBuildFile; fileRef = 6889E94117CCCE88003D4115 /* locations.json */; };
 		6889E94617CDE9F7003D4115 /* DSTPickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6889E94517CDE9F7003D4115 /* DSTPickerView.m */; };
 		6889E94817CDEA5D003D4115 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6889E94717CDEA5D003D4115 /* AudioToolbox.framework */; };
+		68AFE10617D464DB00FD0E94 /* UICRouteAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 68AFE10317D464DB00FD0E94 /* UICRouteAnnotation.m */; };
+		68AFE10717D464DB00FD0E94 /* UICRouteOverlayMapView.m in Sources */ = {isa = PBXBuildFile; fileRef = 68AFE10517D464DB00FD0E94 /* UICRouteOverlayMapView.m */; };
 		68D740F517CF93B6007D8131 /* citywalkViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2899E5210DE3E06400AC0155 /* citywalkViewController.xib */; };
 		72237DF71429B23200257B9A /* citywalkRouteAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 72237DF61429B23200257B9A /* citywalkRouteAnnotation.m */; };
 		727C7ABD143323EE00A5E466 /* citywalkCheckPointViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 727C7ABB143323EE00A5E466 /* citywalkCheckPointViewController.m */; };
@@ -79,6 +81,10 @@
 		6889E94417CDE9F7003D4115 /* DSTPickerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DSTPickerView.h; sourceTree = "<group>"; };
 		6889E94517CDE9F7003D4115 /* DSTPickerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DSTPickerView.m; sourceTree = "<group>"; };
 		6889E94717CDEA5D003D4115 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		68AFE10217D464DB00FD0E94 /* UICRouteAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UICRouteAnnotation.h; sourceTree = "<group>"; };
+		68AFE10317D464DB00FD0E94 /* UICRouteAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UICRouteAnnotation.m; sourceTree = "<group>"; };
+		68AFE10417D464DB00FD0E94 /* UICRouteOverlayMapView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UICRouteOverlayMapView.h; sourceTree = "<group>"; };
+		68AFE10517D464DB00FD0E94 /* UICRouteOverlayMapView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UICRouteOverlayMapView.m; sourceTree = "<group>"; };
 		72237DF51429B23200257B9A /* citywalkRouteAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = citywalkRouteAnnotation.h; sourceTree = "<group>"; };
 		72237DF61429B23200257B9A /* citywalkRouteAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = citywalkRouteAnnotation.m; sourceTree = "<group>"; };
 		727C7ABA143323EE00A5E466 /* citywalkCheckPointViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = citywalkCheckPointViewController.h; sourceTree = "<group>"; };
@@ -289,6 +295,10 @@
 		72D7843414220ECC009B96E5 /* Google Map API */ = {
 			isa = PBXGroup;
 			children = (
+				68AFE10217D464DB00FD0E94 /* UICRouteAnnotation.h */,
+				68AFE10317D464DB00FD0E94 /* UICRouteAnnotation.m */,
+				68AFE10417D464DB00FD0E94 /* UICRouteOverlayMapView.h */,
+				68AFE10517D464DB00FD0E94 /* UICRouteOverlayMapView.m */,
 				727C7C3B14334E2D00A5E466 /* JSONKit.h */,
 				727C7C3C14334E2D00A5E466 /* JSONKit.m */,
 				72D7845814220F8F009B96E5 /* UICGDirections.h */,
@@ -492,6 +502,8 @@
 				727C7C3D14334E2D00A5E466 /* JSONKit.m in Sources */,
 				6889E94017CCC092003D4115 /* Globals.m in Sources */,
 				6889E94617CDE9F7003D4115 /* DSTPickerView.m in Sources */,
+				68AFE10617D464DB00FD0E94 /* UICRouteAnnotation.m in Sources */,
+				68AFE10717D464DB00FD0E94 /* UICRouteOverlayMapView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

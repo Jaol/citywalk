@@ -7,93 +7,32 @@
                       "description":"This route goes throug some interesting spots, where you will hear stories about king and queens, how the city was build and much more."
                       },
                       { "coordinates":[
-                                       
-                                      
                                        {
-                                       "googlePoint": "Store kongensgade",
-                                       "annotationTitle": "Store Kongensgade",
+                                       "googlePoint": "WIDEX a/s",
+                                       "annotationTitle": "test",
+                                       "latitude": 55.84029,
+                                       "longitude": 12.313957
+                                       },
+                                       {
+                                       "googlePoint": "Nymøllevej 6, lynge",
+                                       "annotationTitle": "test",
                                        "latitude": 55.839229,
                                        "longitude": 12.312863
                                        },
                                        {
-                                       "googlePoint": "HIGHWAYNYMOLLEVEJ",
+                                       "googlePoint": "skovmosen 13, lillerød",
                                        "annotationTitle": "test",
                                        "latitude": 55.844157,
                                        "longitude": 12.336466
-                                       },
-                                       {
-                                       "googlePoint": "HIGHWAYMORKHOJVEJ",
-                                       "annotationTitle": "test",
-                                       "latitude": 55.729551,
-                                       "longitude": 12.476606
-                                       },
-                                       {
-                                       "googlePoint": "FREDERIKSSUNDSVEJ",
-                                       "annotationTitle": "test",
-                                       "latitude": 55.712849,
-                                       "longitude": 12.468109
-                                       },
-                                       {
-                                       "googlePoint": "ISLEVHUSVEJ",
-                                       "annotationTitle": "test",
-                                       "latitude": 55.70782,
-                                       "longitude": 12.458839
-                                       },
-                                       {
-                                       "googlePoint": "holmbladsgade 10",
-                                       "annotationTitle": "test",
-                                       "latitude": 55.70782,
-                                       "longitude": 12.458839
                                        }
-                                       ]
+
+                                      
+                                                                              ]
                       
                       }
                       ]
              },
-             {
-             "trip": [
-                      {
-                      "routeTitle": "Route over the brigde area",
-                      "description":"This route takes you through the brigde areas and tells the story of how they where made"
-                      },
-                      { "coordinates":[
-                                       
-                                       {
-                                       "googlePoint": "islevhusvej",
-                                       "annotationTitle": "test",
-                                       "latitude": 55.844157,
-                                       "longitude": 12.336466
-                                       },
-                                       {
-                                       "googlePoint": "HIGHWAYMORKHOJVEJ",
-                                       "annotationTitle": "test",
-                                       "latitude": 55.729551,
-                                       "longitude": 12.476606
-                                       },
-                                       {
-                                       "googlePoint": "FREDERIKSSUNDSVEJ",
-                                       "annotationTitle": "test",
-                                       "latitude": 55.712849,
-                                       "longitude": 12.468109
-                                       },
-                                       {
-                                       "googlePoint": "ISLEVHUSVEJ",
-                                       "annotationTitle": "test",
-                                       "latitude": 55.70782,
-                                       "longitude": 12.458839
-                                       },
-                                       {
-                                       "googlePoint": "holmbladsgade 10",
-                                       "annotationTitle": "test",
-                                       "latitude": 55.70782,
-                                       "longitude": 12.458839
-                                       }
-                                       ]
-                      
-                      }
-                      ]
-             },
-             {
+                         {
              "trip": [
                       {
                       "routeTitle": "The little mermaide",
@@ -102,28 +41,22 @@
                       { "coordinates":[
                                        
                                                                           {
-                                       "googlePoint": "kgs. nytorv, copenhagen",
+                                       "googlePoint": "Toldbogade 30, københavn",
                                        "annotationTitle": "test",
-                                       "latitude": 55.729551,
-                                       "longitude": 12.476606
+                                       "latitude": 55.683428,
+                                       "longitude": 12.595503
                                        },
                                        {
-                                       "googlePoint": "FREDERIKSSUNDSVEJ",
-                                       "annotationTitle": "test",
-                                       "latitude": 55.712849,
-                                       "longitude": 12.468109
+                                       "googlePoint": "Langelinie 5, københavn",
+                                       "annotationTitle": "The little mermaide",
+                                       "latitude": 55.692844,
+                                       "longitude": 12.599097
                                        },
                                        {
-                                       "googlePoint": "ISLEVHUSVEJ",
-                                       "annotationTitle": "test",
-                                       "latitude": 55.70782,
-                                       "longitude": 12.458839
-                                       },
-                                       {
-                                       "googlePoint": "holmbladsgade 10",
-                                       "annotationTitle": "test",
-                                       "latitude": 55.70782,
-                                       "longitude": 12.458839
+                                       "googlePoint": "kvæsthusgade, københavn",
+                                       "annotationTitle": "Royal Danish PlayHouse",
+                                       "latitude": 55.680252,
+                                       "longitude": 12.594001
                                        }
                                        ]
                       
@@ -139,46 +72,40 @@
                       { "coordinates":[
                                        
                                        {
-                                       "googlePoint": "WIDEX a/s",
-                                       "annotationTitle": "test",
-                                       "latitude": 55.84029,
-                                       "longitude": 12.313957
+                                       "googlePoint": "Store kongensgade 1, København",
+                                       "annotationTitle": "Store Kongensgade",
+                                       "latitude": 55.681444,
+                                       "longitude": 12.585311
                                        },
                                        {
-                                       "googlePoint": "WIDEXROUNDABOUT",
-                                       "annotationTitle": "test",
-                                       "latitude": 55.839229,
-                                       "longitude": 12.312863
+                                       "googlePoint": "Kongens Nytorv 28, København",
+                                       "annotationTitle": "Kongens Nytorv 28",
+                                       "latitude": 55.680960,
+                                       "longitude": 12.584903
                                        },
                                        {
-                                       "googlePoint": "HIGHWAYNYMOLLEVEJ",
-                                       "annotationTitle": "test",
-                                       "latitude": 55.844157,
-                                       "longitude": 12.336466
+                                       "googlePoint": "Herluf Trolles Gade 5, København",
+                                       "annotationTitle": "Herbergsgade",
+                                       "latitude": 55.679302,
+                                       "longitude": 12.588122
                                        },
                                        {
-                                       "googlePoint": "HIGHWAYMORKHOJVEJ",
-                                       "annotationTitle": "test",
-                                       "latitude": 55.729551,
-                                       "longitude": 12.476606
+                                       "googlePoint": "Havnegade 55, København",
+                                       "annotationTitle": "Havnegade",
+                                       "latitude": 55.678927,
+                                       "longitude": 12.592843
                                        },
                                        {
-                                       "googlePoint": "FREDERIKSSUNDSVEJ",
-                                       "annotationTitle": "test",
-                                       "latitude": 55.712849,
-                                       "longitude": 12.468109
+                                       "googlePoint": "Børsbroen, København",
+                                       "annotationTitle": "Børsbroen",
+                                       "latitude": 55.675794,
+                                       "longitude": 12.584667
                                        },
                                        {
-                                       "googlePoint": "ISLEVHUSVEJ",
-                                       "annotationTitle": "test",
-                                       "latitude": 55.70782,
-                                       "longitude": 12.458839
-                                       },
-                                       {
-                                       "googlePoint": "holmbladsgade 10",
-                                       "annotationTitle": "test",
-                                       "latitude": 55.70782,
-                                       "longitude": 12.458839
+                                       "googlePoint": "Christiansborg slotsplads, København",
+                                       "annotationTitle": "Christiansborg",
+                                       "latitude": 55.676350,
+                                       "longitude": 12.582242
                                        }
                                        ]
                       

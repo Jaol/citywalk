@@ -22,7 +22,7 @@
 	if (self != nil) {
 		locale = [[NSLocale alloc] initWithLocaleIdentifier:@"en"];
 		travelMode = UICGTravelModeDriving;
-		avoidHighways = NO;
+		avoidHighways = YES;
 		getPolyline = YES;
 		getSteps = YES;
 		preserveViewport = NO;

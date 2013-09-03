@@ -30,6 +30,8 @@ UIPickerView *uiPicker;
 @synthesize locationsDataArray;
 @synthesize cityPicker;
 @synthesize descriptionLabel;
+@synthesize storeDataID;
+
 static const CGFloat kPickerDismissViewHiddenOpacity = 0.666f;
 //Invoked when the class is instantiated in XIB
 -(id)initWithCoder:(NSCoder*)aDecoder
@@ -44,6 +46,8 @@ static const CGFloat kPickerDismissViewHiddenOpacity = 0.666f;
     locationsArray = [[NSMutableArray alloc] init];
     arrayForMenu = [[NSMutableArray alloc]init];
     descriptionArray = [[NSMutableArray alloc]init];
+    
+    storeDataID = 0;
     return self;
 }
 
@@ -65,8 +69,7 @@ static const CGFloat kPickerDismissViewHiddenOpacity = 0.666f;
 
 -(void)collectData{
         
-    
-    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+       dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
         NSString *locationsPath = [[NSBundle mainBundle] pathForResource:@"locations" ofType:@"json"];
         NSURL *url = [NSURL fileURLWithPath:locationsPath];
         NSData* data = [NSData dataWithContentsOfURL:url];
@@ -105,7 +108,7 @@ static const CGFloat kPickerDismissViewHiddenOpacity = 0.666f;
 
    //NSString *desLabel = descriptionArray[0];
 
-    self.sourceCity.text = findFirstLocation;
+    self.sourceCity.text = arrayForMenu[0];
     self.destinationCity1.text = destinationLocation;
     self.descriptionLabel.text = descriptionArray[0];
 
@@ -121,14 +124,15 @@ static const CGFloat kPickerDismissViewHiddenOpacity = 0.666f;
     locationsArray = locationsArray_stored;
     [locationData_stored addObjectsFromArray:[jsonArray_mother valueForKeyPath:@"trip"]];
     
-    NSLog(@"init locationData_stored: %@",locationData_stored);
+    //NSLog(@"init locationData_stored: %@",locationData_stored);
     
     return locationsArray_stored;
 }
 
--(void)setNewRoute:data{
+-(void)setNewRoute:(int *)data{
 
-    
+    storeDataID = data;
+    NSLog(@"storeDataID: %i",storeDataID);
     // update textfields
     
     // get coordinates for new route
@@ -150,6 +154,8 @@ static const CGFloat kPickerDismissViewHiddenOpacity = 0.666f;
     locationsArray_stored = [[[locationData_stored objectAtIndex:data] valueForKey:@"coordinates"]objectAtIndex:1];
     
     locationsArray = locationsArray_stored;
+    
+   
 }
 
 -(void)initUIPicker{
@@ -171,7 +177,7 @@ static const CGFloat kPickerDismissViewHiddenOpacity = 0.666f;
     checkInOut=!checkInOut;
     if(checkInOut)
     {
-        NSLog(@"open");
+        
     [UIView animateWithDuration:0.3 animations:^{
         uiPicker.frame = CGRectMake(0.0,
                                     self.view.bounds.size.height-uiPicker.frame.size.height+63,
@@ -194,7 +200,7 @@ static const CGFloat kPickerDismissViewHiddenOpacity = 0.666f;
         [self.view addSubview:self.touchRecognizer];
         
     }else{
-        NSLog(@"CLOSE");
+      
         [UIView animateWithDuration:0.3 animations:^{
             uiPicker.frame = CGRectMake(uiPicker.frame.origin.x,
                                            self.view.bounds.size.height+286, //Displays the view off the screen
@@ -220,7 +226,7 @@ static const CGFloat kPickerDismissViewHiddenOpacity = 0.666f;
 	self.title = @"Home";
 	mTravelMode.selectedSegmentIndex = 1;    // AS App will launch, Index 0 of segmented control will be selected
     checkInOut = false;
-    
+    storeDataID = 0;
     
     //NSLog(@"[arrayForMenu objectAtIndex:0] %@",[arrayForMenu objectAtIndex:0]);
    }
@@ -229,8 +235,6 @@ static const CGFloat kPickerDismissViewHiddenOpacity = 0.666f;
 - (IBAction)touchedOutsidePicker:(id)sender {
     [self.touchRecognizer removeFromSuperview];
     self.touchRecognizer = nil;
-    
-    NSLog(@"touch!");
     [self openPicker:nil];
 }
 
@@ -248,8 +252,6 @@ static const CGFloat kPickerDismissViewHiddenOpacity = 0.666f;
 
 
 - (void)pickerView:(DSTPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component {
-   //NSLog(@"Did select row: %@", [arrayForMenu objectAtIndex:row]);
-    //[self openPicker:nil];
     [self setNewRoute:row];
     
 }
@@ -259,10 +261,7 @@ static const CGFloat kPickerDismissViewHiddenOpacity = 0.666f;
 }
 
 - (NSString *)pickerView:(DSTPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component {
-   
-   //NSLog(@"rows %@",arrayForMenu);
-    
-    return [arrayForMenu objectAtIndex:row];//[NSString stringWithFormat:@"Row %d", row];
+    return [arrayForMenu objectAtIndex:row];
 }
 
 /*
@@ -298,7 +297,7 @@ static const CGFloat kPickerDismissViewHiddenOpacity = 0.666f;
 	
 	//_Controller.startPoint = mSourceCity.text;
 	_Controller.startPoint  = firstLocation;//[[[[[locationData_stored objectAtIndex:data] valueForKey:@"coordinates"] objectAtIndex:1] valueForKeyPath:@"name"] objectAtIndex:0];
-    NSLog(@"_Controller.startPoint: %@",_Controller.startPoint);
+    //NSLog(@"_Controller.startPoint: %@",_Controller.startPoint);
     
     self.DestinationCityArray = [[NSMutableArray alloc]init];
 	/*
@@ -309,27 +308,30 @@ static const CGFloat kPickerDismissViewHiddenOpacity = 0.666f;
 	*/
     [DestinationCityArray addObject:lastLocation];
 	//_Controller.destination = DestinationCityArray;
-    _Controller.destination = DestinationCityArray;//[[[[[locationData_stored objectAtIndex:data] valueForKey:@"coordinates"] objectAtIndex:1] valueForKeyPath:@"name"] objectAtIndex:0];
+    _Controller.destination = DestinationCityArray;
 	
     // insert waypoints
     
     // add display name for annotation and a direction name for google to use
-    
-    NSMutableArray *WP = [[[[locationData_stored objectAtIndex:1] valueForKey:@"coordinates"] objectAtIndex:1] valueForKeyPath:@"googlePoint"];
+    NSLog(@"storeDataID: %i",storeDataID);
+    NSMutableArray *WP = [[[[locationData_stored objectAtIndex:storeDataID] valueForKey:@"coordinates"] objectAtIndex:1] valueForKeyPath:@"googlePoint"];
     
     NSMutableArray *wayPoints = [NSMutableArray arrayWithCapacity:[WP count]];
     
-    NSLog(@"wayPoints: %@", WP);
-    
-/*
-    for (id wayPoints in WP) {
+   NSLog(@"wayPoints: %@", WP);
+
+    for (id wayPoint in WP) {
        
-            [wayPoints addObject:wayPoints];
-       
+       [wayPoints addObject:wayPoint];
+     
     }
- */
-    NSLog(@"wayPoints ARRAY: %@", wayPoints);
-    _Controller.wayPoints = WP;
+[wayPoints removeLastObject];
+[wayPoints removeObjectAtIndex:0];
+
+ 
+    _Controller.wayPoints = wayPoints;
+    
+    //NSLog(@"wayPoints: %@", wayPoints);
     
     
 		_Controller.travelMode	= UICGTravelModeWalking;

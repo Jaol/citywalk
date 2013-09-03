@@ -28,9 +28,10 @@
     NSMutableArray *arrayForMenu;
     NSMutableArray *descriptionArray;
     NSInteger *newint;
+   
 }
 
-
+@property (nonatomic)  int *storeDataID;
 @property (retain, nonatomic) IBOutlet UILabel *descriptionLabel;
 @property (retain, nonatomic) IBOutlet UIButton *chooseroute;
 @property (retain, nonatomic) IBOutlet UIPickerView *cityPicker;

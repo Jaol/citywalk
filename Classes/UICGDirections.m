@@ -123,9 +123,18 @@ static UICGDirections *sharedDirections;
 	[googleMapsAPI stringByEvaluatingJavaScriptFromString:message];
 }
 - (void)loadFromWaypoints:(NSArray *)waypoints options:(UICGDirectionsOptions *)options {
-	[googleMapsAPI stringByEvaluatingJavaScriptFromString:
-	 [NSString stringWithFormat:@"loadFromWaypoints(%@, %@)", [waypoints JSONRepresentation], [options JSONRepresentation]]];
+
+    NSString* msg = [NSString stringWithFormat:@"loadFromWaypoints(%@, %@)", [waypoints JSONRepresentation], [options JSONRepresentation]];
+    mstr = [msg retain];
+    [self performSelector:@selector(LFWP:)  withObject:msg afterDelay:1];
+    
 }
+- (void)LFWP:(NSString *)message
+{
+	[googleMapsAPI stringByEvaluatingJavaScriptFromString:message];
+    
+}
+
 
 - (NSInteger)numberOfRoutes {
 	return [routes count];

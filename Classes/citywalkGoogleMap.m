@@ -13,7 +13,8 @@
 #import "UICGRoutes.h"
 #import "citywalkCheckPointViewController.h"
 #import <CoreLocation/CoreLocation.h>
-
+#import "UICRouteOverlayMapView.h"
+#import "UICRouteAnnotation.h"
 @interface citywalkGoogleMap()<CLLocationManagerDelegate>
 -(void)releaseAllViews;
 -(void)customInitialization;
@@ -63,14 +64,7 @@
 	
 	mDirections			 = [UICGDirections sharedDirections];
 	mDirections.delegate = self;
-    
-    
-    //SBMapWithRouteAppDelegate *appDelegate = (SBMapWithRouteAppDelegate *)[[UIApplication sharedApplication] delegate];
-    // locationArray_forward = [appDelegate reloadData];
-    // NSLog(@"fecth: %@",locArray);
-    
-    
-    
+   
 }
 
 // The designated initializer.  Override if you create the controller programmatically and want to perform customization that is not appropriate for viewDidLoad.
@@ -112,7 +106,7 @@
     //NSMutableArray *newarray = mainController->locationsArray;
     //SecondViewController *secondViewController = [[SecondViewController alloc] initWithMutableArray:self.mytableinfo];
     //[mainController showmethedata];
-   NSLog(@"collectData:%@", locationsArray_stored);
+  // NSLog(@"collectData:%@", locationsArray_stored);
     
 
 }
@@ -166,8 +160,6 @@
 	City *mFirstCity = [[[City alloc]init] autorelease];
 	mFirstCity.mCityName = mStartPoint;
     
-    
-    
     if ([wayPoints count] > 0) {
         NSArray *routePoints = [NSArray arrayWithObject:mFirstCity.mCityName];
 		routePoints = [routePoints arrayByAddingObjectsFromArray:wayPoints];
@@ -176,11 +168,7 @@
 	} else {
 		[mDirections loadWithStartPoint:mFirstCity.mCityName endPoint:destination options:options];
 	}
-
     
-    
-	//[mDirections loadWithStartPoint:mFirstCity.mCityName endPoint:destination options:options];
-       
 }
 
 -(void)loadRouteAnnotations
@@ -239,7 +227,10 @@
 #pragma mark <UICGDirectionsDelegate> Methods
 
 - (void)directionsDidFinishInitialize:(UICGDirections *)directions {
-	[self updateRoute];
+	    
+        [self updateRoute];
+
+    
 }
 
 - (void)directions:(UICGDirections *)directions didFailInitializeWithError:(NSError *)error {
@@ -293,12 +284,12 @@
     [twoButtons release];
 	
 	//Add annotations of different colors based on initial and final places.
-	citywalkRouteAnnotation *startAnnotation = [[[citywalkRouteAnnotation alloc] initWithCoordinate:[[routePoints objectAtIndex:0] coordinate]
+	UICRouteAnnotation *startAnnotation = [[[UICRouteAnnotation alloc] initWithCoordinate:[[routePoints objectAtIndex:0] coordinate]
 																					title:mStartPoint
-																		   annotationType:citywalkRouteAnnotationTypeStart] autorelease];
-	citywalkRouteAnnotation *endAnnotation = [[[citywalkRouteAnnotation alloc] initWithCoordinate:[[routePoints lastObject] coordinate]
+																		   annotationType:UICRouteAnnotationTypeStart] autorelease];
+	UICRouteAnnotation *endAnnotation = [[[UICRouteAnnotation alloc] initWithCoordinate:[[routePoints lastObject] coordinate]
 																				  title:mEndPoint
-																		 annotationType:citywalkRouteAnnotationTypeEnd] autorelease];
+																		 annotationType:UICRouteAnnotationTypeEnd] autorelease];
 	
     // NEW setup
     
@@ -307,9 +298,9 @@
 		for (NSInteger index = 0; index < numberOfRoutes; index++) {
 			UICGRoute *route = [mDirections routeAtIndex:index];
 			CLLocation *location = [route endLocation];
-			citywalkRouteAnnotation *annotation = [[[citywalkRouteAnnotation alloc] initWithCoordinate:[location coordinate]
+            UICRouteAnnotation *annotation = [[[UICRouteAnnotation alloc] initWithCoordinate:[location coordinate]
 																					   title:[[route endGeocode] objectForKey:@"address"]
-																			  annotationType:citywalkRouteAnnotationTypeWayPoint] autorelease];
+																			  annotationType:UICRouteAnnotationTypeWayPoint] autorelease];
 			[mMap.mapView addAnnotation:annotation];
 		}
 	}

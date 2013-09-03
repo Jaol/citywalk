@@ -12,6 +12,7 @@ extern NSMutableArray *locationData_stored;
 extern NSString *firstLocation;
 extern NSMutableArray *lastLocation;
 
+
 @interface Globals : NSObject {
     
 }
