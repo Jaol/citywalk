@@ -36,6 +36,7 @@
 	IBOutlet citywalkRouteDetailView*  mRouteDetail;
     NSMutableArray *annotationContent;
     NSArray *wayPoints;
+        BOOL *findMeToggle;
   }
 
 

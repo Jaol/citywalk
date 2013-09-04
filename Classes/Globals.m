@@ -15,5 +15,5 @@ NSMutableArray *locationsArray_stored;
 NSMutableArray *locationData_stored;
 NSString *firstLocation;
 NSMutableArray *lastLocation;
-
+NSMutableArray  *locationArrayToChange_stored;
 @end

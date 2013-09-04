@@ -21,7 +21,7 @@
     NSMutableArray *distanceArray;
     
     NSMutableArray *annotationContents;
-   
+    BOOL *toggle;
 }
 @property (nonatomic, retain)UILabel *yourLabel;
 @property  (nonatomic, retain) NSMutableArray* annotationContents;
@@ -34,5 +34,5 @@
 @property (nonatomic, strong)NSArray*locArray;
 #pragma mark Instance Methods
 -(void)loadRoutes:(NSArray *)inArray;
-
+-(void)findMe:(BOOL *)check;
 @end

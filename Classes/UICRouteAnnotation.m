@@ -14,15 +14,14 @@
 @synthesize title;
 @synthesize annotationType;
 
-- (id)initWithCoordinate:(CLLocationCoordinate2D)coord 
-				   title:(NSString *)aTitle 
-		  annotationType:(UICRouteAnnotationType)type {
+- (id)initWithCoordinate:(CLLocationCoordinate2D)coord title:(NSString *)aTitle annotationType:(UICRouteAnnotationType)type {
 	self = [super init];
 	if (self != nil) {
 		coordinate = coord;
 		title = [aTitle retain];
 		annotationType = type;
 	}
+
 	return self;
 }
 
@@ -32,3 +31,5 @@
 }
 
 @end
+
+

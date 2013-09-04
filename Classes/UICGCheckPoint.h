@@ -13,16 +13,22 @@
 	
 	NSDictionary *dictionaryRepresentation;
 	NSArray *step;
+    NSArray *sumStep;
 	NSString *summaryHtml;
 	NSMutableArray *wayPoints;
 	NSMutableArray *mPlaceTitle;
+    NSMutableArray *mPlaceDistance;
+    NSMutableArray *summaryArray;
+    NSString *removeSome;
 }
 
 @property (nonatomic, retain, readonly) NSDictionary *dictionaryRepresentation;
 @property (nonatomic, retain) NSArray *step;
 @property (nonatomic, retain, readonly) NSString *summaryHtml;
+@property (nonatomic, retain, readonly) NSString *removeSome;
 @property (nonatomic, retain) NSMutableArray *wayPoints;
 @property (nonatomic, retain) NSMutableArray *mPlaceTitle;
+@property (nonatomic, retain) NSMutableArray *mPlaceDistance;
 
 + (UICGCheckPoint *)CheckPointWithDictionaryRepresentation:(NSDictionary *)dictionary;
 - (id)initWithDictionaryRepresentation:(NSDictionary *)dictionary;

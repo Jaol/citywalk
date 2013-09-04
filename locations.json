@@ -3,27 +3,27 @@
              {
              "trip": [
                       {
-                      "routeTitle": "Route through the old streets",
+                      "routeTitle": "The old streets",
                       "description":"This route goes throug some interesting spots, where you will hear stories about king and queens, how the city was build and much more."
                       },
                       { "coordinates":[
                                        {
-                                       "googlePoint": "WIDEX a/s",
-                                       "annotationTitle": "test",
-                                       "latitude": 55.84029,
-                                       "longitude": 12.313957
+                                       "googlePoint": "WIDEX A/S",
+                                       "annotationTitle": "WIDEX A/S",
+                                       "latitude": 55.840839,
+                                       "longitude": 12.314617
                                        },
                                        {
-                                       "googlePoint": "Nymøllevej 6, lynge",
-                                       "annotationTitle": "test",
-                                       "latitude": 55.839229,
-                                       "longitude": 12.312863
+                                       "googlePoint": "Nymøllevej 4, lynge",
+                                       "annotationTitle": "Nymøllevej 4, lynge ",
+                                       "latitude": 55.845402,
+                                       "longitude": 12.337784
                                        },
                                        {
-                                       "googlePoint": "skovmosen 13, lillerød",
-                                       "annotationTitle": "test",
-                                       "latitude": 55.844157,
-                                       "longitude": 12.336466
+                                       "googlePoint": "Skovmosen 13, lillerød",
+                                       "annotationTitle": "Skovmosen 13, lillerød",
+                                       "latitude": 55.845215,
+                                       "longitude": 12.341699
                                        }
 
                                       
@@ -42,7 +42,7 @@
                                        
                                                                           {
                                        "googlePoint": "Toldbogade 30, københavn",
-                                       "annotationTitle": "test",
+                                       "annotationTitle": "Toldbogade 30",
                                        "latitude": 55.683428,
                                        "longitude": 12.595503
                                        },
@@ -53,7 +53,7 @@
                                        "longitude": 12.599097
                                        },
                                        {
-                                       "googlePoint": "kvæsthusgade, københavn",
+                                       "googlePoint": "Sankt Annæ Plads, 36, københavn",
                                        "annotationTitle": "Royal Danish PlayHouse",
                                        "latitude": 55.680252,
                                        "longitude": 12.594001
@@ -73,7 +73,7 @@
                                        
                                        {
                                        "googlePoint": "Store kongensgade 1, København",
-                                       "annotationTitle": "Store Kongensgade",
+                                       "annotationTitle": "Store Kongensgade1 ",
                                        "latitude": 55.681444,
                                        "longitude": 12.585311
                                        },

@@ -34,6 +34,7 @@
 @implementation citywalkCheckPointViewController
 @synthesize mTable;
 @synthesize mCheckPoints;
+@synthesize mPlaceDistance;
 
 //Invoked when the class is instantiated in XIB
 -(id)initWithCoder:(NSCoder*)aDecoder
@@ -94,9 +95,11 @@
     }
     
     // Configure the cell...
+   
 	cell.textLabel.text = [NSString stringWithFormat:@"%@",[mCheckPoints objectAtIndex:indexPath.row]];
 	cell.textLabel.numberOfLines = 3;
 	cell.textLabel.font = [UIFont fontWithName:@"HelveticaNeue" size:14.0f];
+    cell.detailTextLabel.text = [NSString stringWithFormat:@"%@",[mPlaceDistance objectAtIndex:indexPath.row]];
 	return cell;	
 }
 

@@ -21,9 +21,10 @@
 		683E5DB317D0801400DCC2FF /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 683E5DB217D0801400DCC2FF /* Default.png */; };
 		683E5DB517D0934500DCC2FF /* bluebtn.png in Resources */ = {isa = PBXBuildFile; fileRef = 683E5DB417D0934400DCC2FF /* bluebtn.png */; };
 		683E5DB717D09F6700DCC2FF /* orangebtn.png in Resources */ = {isa = PBXBuildFile; fileRef = 683E5DB617D09F6700DCC2FF /* orangebtn.png */; };
+		68762A3117D74B720095C200 /* DSTPickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 68762A3017D74B720095C200 /* DSTPickerView.m */; settings = {COMPILER_FLAGS = "-objc-arc"; }; };
+		68762A3317D74F200095C200 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 68762A3217D74F200095C200 /* QuartzCore.framework */; };
 		6889E94017CCC092003D4115 /* Globals.m in Sources */ = {isa = PBXBuildFile; fileRef = 6889E93F17CCC092003D4115 /* Globals.m */; };
 		6889E94217CCCE88003D4115 /* locations.json in Resources */ = {isa = PBXBuildFile; fileRef = 6889E94117CCCE88003D4115 /* locations.json */; };
-		6889E94617CDE9F7003D4115 /* DSTPickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6889E94517CDE9F7003D4115 /* DSTPickerView.m */; };
 		6889E94817CDEA5D003D4115 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6889E94717CDEA5D003D4115 /* AudioToolbox.framework */; };
 		68AFE10617D464DB00FD0E94 /* UICRouteAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 68AFE10317D464DB00FD0E94 /* UICRouteAnnotation.m */; };
 		68AFE10717D464DB00FD0E94 /* UICRouteOverlayMapView.m in Sources */ = {isa = PBXBuildFile; fileRef = 68AFE10517D464DB00FD0E94 /* UICRouteOverlayMapView.m */; };
@@ -75,11 +76,12 @@
 		683E5DB217D0801400DCC2FF /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
 		683E5DB417D0934400DCC2FF /* bluebtn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bluebtn.png; sourceTree = "<group>"; };
 		683E5DB617D09F6700DCC2FF /* orangebtn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = orangebtn.png; sourceTree = "<group>"; };
+		68762A2F17D74B720095C200 /* DSTPickerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DSTPickerView.h; path = Classes/DSTPickerView.h; sourceTree = "<group>"; };
+		68762A3017D74B720095C200 /* DSTPickerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DSTPickerView.m; path = Classes/DSTPickerView.m; sourceTree = SOURCE_ROOT; };
+		68762A3217D74F200095C200 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		6889E93E17CCC092003D4115 /* Globals.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Globals.h; sourceTree = "<group>"; };
 		6889E93F17CCC092003D4115 /* Globals.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Globals.m; sourceTree = "<group>"; };
 		6889E94117CCCE88003D4115 /* locations.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = locations.json; sourceTree = "<group>"; };
-		6889E94417CDE9F7003D4115 /* DSTPickerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DSTPickerView.h; sourceTree = "<group>"; };
-		6889E94517CDE9F7003D4115 /* DSTPickerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DSTPickerView.m; sourceTree = "<group>"; };
 		6889E94717CDEA5D003D4115 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		68AFE10217D464DB00FD0E94 /* UICRouteAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UICRouteAnnotation.h; sourceTree = "<group>"; };
 		68AFE10317D464DB00FD0E94 /* UICRouteAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UICRouteAnnotation.m; sourceTree = "<group>"; };
@@ -138,6 +140,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				68762A3317D74F200095C200 /* QuartzCore.framework in Frameworks */,
 				6889E94817CDEA5D003D4115 /* AudioToolbox.framework in Frameworks */,
 				6836976117C7558600F71929 /* AVFoundation.framework in Frameworks */,
 				1D60589F0D05DD5A006BFB54 /* Foundation.framework in Frameworks */,
@@ -205,6 +208,7 @@
 		29B97323FDCFA39411CA2CEA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				68762A3217D74F200095C200 /* QuartzCore.framework */,
 				6889E94717CDEA5D003D4115 /* AudioToolbox.framework */,
 				6836976017C7558600F71929 /* AVFoundation.framework */,
 				1DF5F4DF0D08C38300B7A737 /* UIKit.framework */,
@@ -219,8 +223,8 @@
 		6889E94317CDE9F7003D4115 /* picker */ = {
 			isa = PBXGroup;
 			children = (
-				6889E94417CDE9F7003D4115 /* DSTPickerView.h */,
-				6889E94517CDE9F7003D4115 /* DSTPickerView.m */,
+				68762A2F17D74B720095C200 /* DSTPickerView.h */,
+				68762A3017D74B720095C200 /* DSTPickerView.m */,
 			);
 			path = picker;
 			sourceTree = "<group>";
@@ -501,9 +505,9 @@
 				727C7ABD143323EE00A5E466 /* citywalkCheckPointViewController.m in Sources */,
 				727C7C3D14334E2D00A5E466 /* JSONKit.m in Sources */,
 				6889E94017CCC092003D4115 /* Globals.m in Sources */,
-				6889E94617CDE9F7003D4115 /* DSTPickerView.m in Sources */,
 				68AFE10617D464DB00FD0E94 /* UICRouteAnnotation.m in Sources */,
 				68AFE10717D464DB00FD0E94 /* UICRouteOverlayMapView.m in Sources */,
+				68762A3117D74B720095C200 /* DSTPickerView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

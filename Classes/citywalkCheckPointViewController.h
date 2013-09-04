@@ -13,8 +13,10 @@
 
 	IBOutlet UITableView *mTable;
 	NSMutableArray *mCheckPoints;
+    NSMutableArray *mPlaceDistance;
 }
 @property (nonatomic,retain) UITableView *mTable;
 @property (nonatomic,retain) NSMutableArray *mCheckPoints;
+@property (nonatomic, retain) NSMutableArray *mPlaceDistance;
 
 @end

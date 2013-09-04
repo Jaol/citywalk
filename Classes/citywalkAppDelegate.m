@@ -31,7 +31,7 @@
     locationData_stored  = [[NSMutableArray alloc] init];
     firstLocation = [[NSString alloc] init];
     lastLocation  = [[NSMutableArray alloc] init];
-
+    locationArrayToChange_stored = [[NSMutableArray alloc]init];
     return YES;
 }
 

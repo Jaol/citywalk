@@ -13,9 +13,12 @@
 
 @synthesize dictionaryRepresentation;
 @synthesize step;
+
 @synthesize summaryHtml;
 @synthesize wayPoints;
 @synthesize mPlaceTitle;
+@synthesize mPlaceDistance;
+@synthesize removeSome;
 
 + (UICGCheckPoint *)CheckPointWithDictionaryRepresentation:(NSDictionary *)dictionary {
 	UICGCheckPoint *CheckPoint = [[UICGCheckPoint alloc] initWithDictionaryRepresentation:dictionary];
@@ -26,50 +29,81 @@
 	self = [super init];
 	if (self != nil) {
 		dictionaryRepresentation = [dictionary retain];	
-		NSDictionary *routeDic = [dictionaryRepresentation objectForKey:@"k"];
+		NSDictionary *routeDic = [dictionaryRepresentation objectForKey:@"g"];
 		step = [routeDic objectForKey:@"Steps"];
-		self.wayPoints = [NSMutableArray arrayWithCapacity:[step count]];
-		NSMutableArray* wayPointsHTML = [NSMutableArray arrayWithCapacity:[step count]];
-		for (int i=0 ; i<[step count]; i++) {
+		sumStep = [dictionaryRepresentation objectForKey:@"g"];
+        self.wayPoints = [NSMutableArray arrayWithCapacity:[step count]];
+	//	NSLog(@"sumStep %@",sumStep);
+                
+        NSMutableArray* wayPointsHTML = [NSMutableArray arrayWithCapacity:[step count]];
+        NSMutableArray* distanceHTML = [NSMutableArray arrayWithCapacity:[step count]];
+         self.mPlaceDistance=[[NSMutableArray alloc]initWithCapacity:[distanceHTML count]];
+        		for (int i=0 ; i<[step count]; i++) {
 			NSArray *coordinateArray = [[[step objectAtIndex:i] objectForKey:@"Point"] objectForKey:@"coordinates"];
-			
+                    
+           			
 			CLLocationDegrees latitude  = [[coordinateArray objectAtIndex:1] doubleValue];
 			CLLocationDegrees longitude = [[coordinateArray objectAtIndex:0] doubleValue];
 			CLLocation *location = [[[CLLocation alloc] initWithLatitude:latitude longitude:longitude] autorelease];
 			[self.wayPoints addObject:location];
 			
 			NSString *mDescriptionHTML = [[step objectAtIndex:i] objectForKey:@"descriptionHtml"];
+                    
+                    
+                    NSString *distanceString = [[[step objectAtIndex:i] objectForKey:@"Distance"] objectForKey:@"html"];
+
+                    [distanceHTML addObject:distanceString];
+            
 			[wayPointsHTML addObject:mDescriptionHTML];
+            
+
+
+           
+            
 		}
 
-
-
+        
+               
 	if (!mPlaceTitle ) {
+        
+       
 		self.mPlaceTitle=[[NSMutableArray alloc] initWithCapacity:[wayPointsHTML count]];
-		//NSMutableArray *mArr = [[NSMutableArray alloc]initWithCapacity:[wayPointsHTML count]]; 
+		NSMutableArray *mArr = [[NSMutableArray alloc]initWithCapacity:[wayPointsHTML count]]; 
 		for (int index=0 ; index<[step count]; index++)	
 		{
-			//NSString *mPlaceString = [[[NSString alloc]init]autorelease];
+            removeSome = [distanceHTML objectAtIndex:index];
+            removeSome = [removeSome stringByReplacingOccurrencesOfString:@"&nbsp;" withString:@" "];
+            
+            
+            
+			NSString *mPlaceString = [[[NSString alloc]init]autorelease];
 			summaryHtml = [wayPointsHTML objectAtIndex:index];
-			//mPlaceString = [wayPointsHTML objectAtIndex:index];
+			mPlaceString = [wayPointsHTML objectAtIndex:index];
+            summaryHtml = [summaryHtml stringByReplacingOccurrencesOfString:@"google_note" withString:@"DAWDAWDAW"];
 			summaryHtml = [summaryHtml stringByReplacingOccurrencesOfString:@"\\r\\" withString:@""];
-			//mPlaceString = [mPlaceString stringByReplacingOccurrencesOfString:@"\n" withString:@""];
+            
+           
+			mPlaceString = [mPlaceString stringByReplacingOccurrencesOfString:@"\n" withString:@""];
 			NSRange r;
 			while ((r = [summaryHtml rangeOfString:@"<[^>]+>" options:NSRegularExpressionSearch]).location != NSNotFound)
 			{
 				summaryHtml = [summaryHtml stringByReplacingCharactersInRange:r withString:@""];
 			}
-			//while ((r = [mPlaceString rangeOfString:@"<[^>]+>" options:NSRegularExpressionSearch]).location != NSNotFound)
-//			{
-//				mPlaceString = [mPlaceString stringByReplacingCharactersInRange:r withString:@""];	
-//			}
-//			NSLog(@"summaryHtml%@",summaryHtml);
+			/*
+             while ((r = [mPlaceString rangeOfString:@"google_note" options:NSRegularExpressionSearch]).location != NSNotFound)
+			{				mPlaceString = [mPlaceString stringByReplacingCharactersInRange:r withString:@""];	
+			}
+             */
+			//NSLog(@"summaryHtml%@",summaryHtml);
 //			NSLog(@"mPlaceString%@",mPlaceString);
+            [self.mPlaceDistance addObject:removeSome];
 			[self.mPlaceTitle addObject:summaryHtml];
-			//[mArr addObject:mPlaceString];
+			[mArr addObject:mPlaceString];
 			//NSLog(@"%@",summaryHtml);
 		}
-		//NSLog(@" wayPointsHTML %@",wayPointsHTML);
+		// NSLog(@" wayPointsHTML %@",wayPointsHTML);
+          //NSLog(@"self.mPlaceDistance: %@",self.mPlaceDistance);
+        [mPlaceDistance release];
 		[mPlaceTitle release];
 	}
 	}

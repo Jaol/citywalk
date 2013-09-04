@@ -7,8 +7,8 @@
 //
 
 #import "citywalkViewController.h"
-#import "DSTPickerView.h"
 #import "citywalkMapView.h"
+#import "DSTPickerView.h"
 @interface citywalkViewController() <DSTPickerViewDataSource, DSTPickerViewDelegate, UIPickerViewDataSource, UIPickerViewDelegate>{
 
 UIPickerView *uiPicker;
@@ -28,11 +28,11 @@ UIPickerView *uiPicker;
 @synthesize locationsData;
 @synthesize error;
 @synthesize locationsDataArray;
-@synthesize cityPicker;
+//@synthesize cityPicker;
 @synthesize descriptionLabel;
 @synthesize storeDataID;
 
-static const CGFloat kPickerDismissViewHiddenOpacity = 0.666f;
+static const CGFloat kPickerDismissViewHiddenOpacity = 0.89f;
 //Invoked when the class is instantiated in XIB
 -(id)initWithCoder:(NSCoder*)aDecoder
 {
@@ -99,7 +99,7 @@ static const CGFloat kPickerDismissViewHiddenOpacity = 0.666f;
     jsonArray_mother = [locationsArrays valueForKeyPath:@"trips"];
 
     // find: first set of data as string
-    NSArray *firstLocationSet = [[jsonArray_mother valueForKeyPath:@"trip"] objectAtIndex:0];
+    firstLocationSet = [[jsonArray_mother valueForKeyPath:@"trip"] objectAtIndex:0];
     
     // get start position
     NSString *findFirstLocation = [[[[firstLocationSet valueForKey:@"coordinates" ] objectAtIndex:1] valueForKeyPath:@"googlePoint"] objectAtIndex:0];
@@ -122,6 +122,8 @@ static const CGFloat kPickerDismissViewHiddenOpacity = 0.666f;
     [self initUIPicker];
     
     locationsArray = locationsArray_stored;
+    locationArrayToChange_stored = locationsArray_stored;
+    
     [locationData_stored addObjectsFromArray:[jsonArray_mother valueForKeyPath:@"trip"]];
     
     //NSLog(@"init locationData_stored: %@",locationData_stored);
@@ -132,30 +134,36 @@ static const CGFloat kPickerDismissViewHiddenOpacity = 0.666f;
 -(void)setNewRoute:(int *)data{
 
     storeDataID = data;
-    NSLog(@"storeDataID: %i",storeDataID);
-    // update textfields
     
-    // get coordinates for new route
-   //id *i = &data;
-    //NSLog(@"locationData_stored %@", [[[locationData_stored objectAtIndex:data] valueForKey:@"coordinates"]objectAtIndex:1]);
-    //NSLog(@"data:%i",data);
-    
-        // get start position
+    // get start position
     firstLocation = [[[[[locationData_stored objectAtIndex:data] valueForKey:@"coordinates"] objectAtIndex:1] valueForKeyPath:@"googlePoint"] objectAtIndex:0];
+    
     // get destination
     lastLocation = [[[[[locationData_stored objectAtIndex:data] valueForKey:@"coordinates"] objectAtIndex:1] valueForKeyPath:@"googlePoint"] lastObject];
-    //NSLog(@"data: first: %@, last: %@,", getFirstLocation, getDestinationLocation);
+
     self.sourceCity.text = [arrayForMenu objectAtIndex:data];
-    //self.destinationCity1.text = getDestinationLocation;
-    
+      
     NSString *getDesc = [descriptionArray objectAtIndex:data];
-     self.descriptionLabel.text = getDesc;
+    self.descriptionLabel.text = getDesc;
     
-    locationsArray_stored = [[[locationData_stored objectAtIndex:data] valueForKey:@"coordinates"]objectAtIndex:1];
+    if(locationArrayToChange_stored != nil){
+        if([locationArrayToChange_stored count]){
+        [locationArrayToChange_stored removeAllObjects];
+           // NSLog(@"array exsists and is now empty");
+        }
+    }
     
+    [locationArrayToChange_stored addObjectsFromArray:[[[locationData_stored objectAtIndex:data] valueForKey:@"coordinates"]objectAtIndex:1]];
+
+    //locationArrayToChange_stored  = [[[locationData_stored objectAtIndex:data] valueForKey:@"coordinates"]objectAtIndex:1];
     locationsArray = locationsArray_stored;
     
-   
+          
+    // ISOLATE ANNOTATION PINS FROM START-END
+    [locationArrayToChange_stored removeLastObject];
+    [locationArrayToChange_stored removeObjectAtIndex:0];
+   // NSLog(@"[locationArrayToChange_stored]: %@",locationArrayToChange_stored);
+
 }
 
 -(void)initUIPicker{
@@ -169,6 +177,16 @@ static const CGFloat kPickerDismissViewHiddenOpacity = 0.666f;
     [uiPicker setDataSource:self];
     [self.view.window addSubview:uiPicker];
     
+
+    
+    /*
+    CALayer* mask = [[CALayer alloc] init];
+    mask.backgroundColor = [UIColor blackColor].CGColor;
+    mask.frame = CGRectInset(uiPicker.bounds, 25.0f, 0.0f);
+    mask.cornerRadius = 5.0f;
+    uiPicker.layer.mask = mask;
+   */ 
+    
 }
 
 - (IBAction)openPicker:(id)sender {
@@ -180,23 +198,26 @@ static const CGFloat kPickerDismissViewHiddenOpacity = 0.666f;
         
     [UIView animateWithDuration:0.3 animations:^{
         uiPicker.frame = CGRectMake(0.0,
-                                    self.view.bounds.size.height-uiPicker.frame.size.height+63,
+                                    self.view.bounds.size.height-uiPicker.frame.size.height+65,
                                     uiPicker.frame.size.width,
                                     uiPicker.frame.size.height);
     }];
         
         self.touchRecognizer = [[UIControl alloc]initWithFrame:self.view.window.bounds];
         
-        UILabel *txt_dismisPicker= [[UILabel alloc]initWithFrame:CGRectMake(75, 75, self.view.bounds.size.width/2, 50)];
+        UILabel *txt_dismisPicker= [[UILabel alloc]initWithFrame:CGRectMake(75, 100, self.view.bounds.size.width/2, 310)];
         txt_dismisPicker.textAlignment = NSTextAlignmentCenter;
         [self.touchRecognizer addTarget:self action:@selector(touchedOutsidePicker:) forControlEvents:UIControlEventTouchUpInside];
-        self.touchRecognizer.backgroundColor = [UIColor blackColor];
-        txt_dismisPicker.backgroundColor    = [UIColor clearColor];
-        txt_dismisPicker.textColor = [UIColor whiteColor];
-        
+        self.touchRecognizer.backgroundColor = [UIColor whiteColor];
+        txt_dismisPicker.backgroundColor = [UIColor whiteColor];
+        //txt_dismisPicker.alpha = kPickerDismissViewHiddenOpacity;
+        txt_dismisPicker.textColor = [UIColor blackColor];
         self.touchRecognizer.alpha = kPickerDismissViewHiddenOpacity;
-        txt_dismisPicker.text = @"Tap to close";
+        txt_dismisPicker.text = @"TAP HERE TO CLOSE";
+        [txt_dismisPicker sizeToFit];
+
         [self.touchRecognizer addSubview:txt_dismisPicker];
+        
         [self.view addSubview:self.touchRecognizer];
         
     }else{
@@ -313,12 +334,12 @@ static const CGFloat kPickerDismissViewHiddenOpacity = 0.666f;
     // insert waypoints
     
     // add display name for annotation and a direction name for google to use
-    NSLog(@"storeDataID: %i",storeDataID);
+    //NSLog(@"storeDataID: %i",storeDataID);
     NSMutableArray *WP = [[[[locationData_stored objectAtIndex:storeDataID] valueForKey:@"coordinates"] objectAtIndex:1] valueForKeyPath:@"googlePoint"];
     
     NSMutableArray *wayPoints = [NSMutableArray arrayWithCapacity:[WP count]];
     
-   NSLog(@"wayPoints: %@", WP);
+ //  NSLog(@"wayPoints: %@", WP);
 
     for (id wayPoint in WP) {
        
@@ -327,8 +348,8 @@ static const CGFloat kPickerDismissViewHiddenOpacity = 0.666f;
     }
 [wayPoints removeLastObject];
 [wayPoints removeObjectAtIndex:0];
-
- 
+_Controller.startPoint  = [[[[[locationData_stored objectAtIndex:storeDataID] valueForKey:@"coordinates"] objectAtIndex:1] valueForKeyPath:@"annotationTitle"] objectAtIndex:0];
+ _Controller.endPoint = [[[[[locationData_stored objectAtIndex:storeDataID] valueForKey:@"coordinates"] objectAtIndex:1] valueForKeyPath:@"annotationTitle"] lastObject];
     _Controller.wayPoints = wayPoints;
     
     //NSLog(@"wayPoints: %@", wayPoints);
@@ -364,10 +385,10 @@ static const CGFloat kPickerDismissViewHiddenOpacity = 0.666f;
 }
 
 - (void)viewDidUnload {
-    [cityPicker release];
-    cityPicker = nil;
+   // [cityPicker release];
+    //cityPicker = nil;
     [self setChooseroute:nil];
-    [self setCityPicker:nil];
+    //[self setCityPicker:nil];
     [self setDescriptionLabel:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
@@ -399,11 +420,12 @@ static const CGFloat kPickerDismissViewHiddenOpacity = 0.666f;
 }
 
 - (void)dealloc {
-	[self releaseAllViews];
-    [cityPicker release];
+	
+    //[cityPicker release];
     [_chooseroute release];
-
+    //[locationArrayToChange_stored release];
     [descriptionLabel release];
+    [self releaseAllViews];
     [super dealloc];
 }
 

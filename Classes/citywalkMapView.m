@@ -26,7 +26,7 @@
     
     self = [super initWithFrame:frame];
     if (self) {
-
+                
         // Initialization code.
 		mMapView = [[MKMapView alloc] initWithFrame:CGRectMake(0, 0, frame.size.width, frame.size.height)];
 		mMapView.showsUserLocation = YES;
@@ -42,7 +42,7 @@
 	
        
         
-       yourLabel = [[UILabel alloc] initWithFrame:CGRectMake(10, 278, 300, 130)];
+        yourLabel = [[UILabel alloc] initWithFrame:CGRectMake(10, 310, 300, 90)];
         
         [yourLabel setTextColor:[UIColor whiteColor]];
         [yourLabel setBackgroundColor:[UIColor blackColor]];
@@ -50,8 +50,12 @@
         yourLabel.numberOfLines= 0;
         [self addSubview:yourLabel];
         
+
     }
+    //if (nil == self.locationManager)
+    //    self.locationManager = [[CLLocationManager alloc] init];
     
+   
     return self;
 }
 /*
@@ -65,13 +69,15 @@
 
 -(void)loadRoutes:(NSArray *)routePoints
 {
+
+
 	
 	MKMapPoint northEastPoint; 
 	MKMapPoint southWestPoint; 
 		
 	// create a c array of points. 
 	MKMapPoint* pointArr = malloc(sizeof(CLLocationCoordinate2D) * [routePoints count]);
-	//NSLog(@" %d",[routePoints count]);
+	NSLog(@" routepoints COUNT: %d",[routePoints count]);
 	
 	for(int idx = 0; idx < [routePoints count]; idx++)
 	{
@@ -106,8 +112,7 @@
 	CLLocationDegrees maxLon = -180.0f;
 	CLLocationDegrees minLat = 90.0f;
 	CLLocationDegrees minLon = 180.0f;
-	
-	
+
 	for (int i = 0; i < [routePoints count]; i++) {
 		CLLocation *currentLocation = [routePoints  objectAtIndex:i];
 		if(currentLocation.coordinate.latitude > maxLat) {
@@ -124,13 +129,19 @@
 		}
 	}
 	
+  
+  /*  */
+
+
+   
+    
+    
 	MKCoordinateRegion region;
 	region.center.latitude     = (maxLat + minLat) / 2;
 	region.center.longitude    = (maxLon + minLon) / 2;
 	region.span.latitudeDelta  = maxLat - minLat;
 	region.span.longitudeDelta = maxLon - minLon;
-
-	[self.mapView setRegion:region animated:YES];
+     [self.mapView setRegion:region animated:YES];
 		
 	// create the polyline based on the array of points. 
 	self.routeLine = [MKPolyline polylineWithPoints:pointArr count:[routePoints count]];
@@ -138,40 +149,46 @@
 		
 	// clear the memory allocated earlier for the points
 	free(pointArr);
-	
-   
-    
+
+    //[self setupLocationManager];
+     [self performSelector:@selector(setupLocationManager:)  withObject:nil afterDelay:2];
+}
+
+-(void)setupLocationManager:sidekick{
     if (nil == self.locationManager)
         self.locationManager = [[CLLocationManager alloc] init];
-    
     self.locationManager.delegate = self;
+    
     self.locationManager.desiredAccuracy = kCLLocationAccuracyBest;
     
     // Set a movement threshold for new events.
     self.locationManager.distanceFilter = 50;
     
     [self.locationManager startUpdatingLocation];
-    
 }
 
 
+-(void)findMe:(BOOL *)check{
+
+    toggle = check;
+   
+    if(toggle)
+        [self checkLocation];
+    
+}
 
 -(void)checkLocation{
  
-  //  NSLog(@"collectData:%@", locationsArray_stored);
-    
-    //annotationContents = locationsArray_stored;
-    //NSLog(@"annotationContent: %@",annotationContents);
-    
-    ///NSLog(@"annotation: %@",annotationContents);
-    
+    if(toggle)
     [self.mapView setCenterCoordinate:[self.mapView.userLocation coordinate] animated:YES];
 
     
    NSString *testText = @"";
-       for (NSDictionary *locationEntry in locationsArray_stored)
+           
+    
+       for (NSDictionary *locationEntry in locationArrayToChange_stored)
     {
-       
+       // NSLog(@"locationsArray_stored: %@",locationsArray_stored);
         NSNumber *longitude = locationEntry[@"longitude"];
         NSNumber *latitude = locationEntry[@"latitude"];
         NSString *locationName = locationEntry[@"annotationTitle"];
@@ -187,13 +204,13 @@
         
         if (distance <= 10)
         {
-            NSLog(@"You are within 10 meters (actually %.0f meters) of %@", distance, locationName);
+            //NSLog(@"You are within 10 meters (actually %.0f meters) of %@", distance, locationName);
             [AudioPlayer play];
             toText = [NSString stringWithFormat:@"distance %.0f meters to %@", distance, locationName];
         }
         else
         {
-            NSLog(@"distance %.0f meters to %@", distance, locationName);
+            //NSLog(@"distance %.0f meters to %@", distance, locationName);
             toText = [NSString stringWithFormat:@"distance %.0f meters to %@", distance, locationName];
         }
         
@@ -246,9 +263,9 @@
 		}
 		
 		if ([(citywalkRouteAnnotation *)annotation annotationType] == citywalkRouteAnnotationTypeWayPoint) {
-			pinAnnotation.pinColor = MKPinAnnotationColorGreen;
-		} else if ([(citywalkRouteAnnotation *)annotation annotationType] == citywalkRouteAnnotationTypeEnd) {
 			pinAnnotation.pinColor = MKPinAnnotationColorRed;
+		} else if ([(citywalkRouteAnnotation *)annotation annotationType] == citywalkRouteAnnotationTypeEnd) {
+			pinAnnotation.pinColor = MKPinAnnotationColorGreen;
 		} else {
 			pinAnnotation.pinColor = MKPinAnnotationColorGreen;
 		}

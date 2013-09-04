@@ -10,7 +10,7 @@
 #import "citywalkAppDelegate.h"
 #import "citywalkGoogleMap.h"
 #import "Globals.h"
-
+#import <QuartzCore/QuartzCore.h>
 @interface citywalkViewController : UIViewController <UITextFieldDelegate>{
 
 	UITextField			*mSourceCity;		//TextField for the Source city
@@ -28,13 +28,13 @@
     NSMutableArray *arrayForMenu;
     NSMutableArray *descriptionArray;
     NSInteger *newint;
-   
+    NSArray *firstLocationSet;
 }
 
 @property (nonatomic)  int *storeDataID;
 @property (retain, nonatomic) IBOutlet UILabel *descriptionLabel;
 @property (retain, nonatomic) IBOutlet UIButton *chooseroute;
-@property (retain, nonatomic) IBOutlet UIPickerView *cityPicker;
+//@property (retain, nonatomic) IBOutlet DSTPickerView *cityPicker;
 @property (strong, nonatomic) UIControl *touchRecognizer;
 - (IBAction)openPicker:(id)sender;
 @property (nonatomic, retain)NSError *error;
