@@ -14,25 +14,91 @@
                                        "longitude": 12.314617
                                        },
                                        {
-                                       "googlePoint": "Nymøllevej 4, lynge",
-                                       "annotationTitle": "Nymøllevej 4, lynge ",
-                                       "latitude": 55.845402,
-                                       "longitude": 12.337784
+                                       "googlePoint": "vassingerød hillerødmotorvejen",
+                                       "annotationTitle": "vassingerød hillerødmotorvejen",
+                                       "latitude": 55.840215,
+                                       "longitude": 12.347526
+                                       },
+                                                                              {
+                                       "googlePoint": "hillerødmotorvejen 4",
+                                       "annotationTitle": "hillerødmotorvejen near farum",
+                                       "latitude": 55.787388,
+                                       "longitude": 12.389357
                                        },
                                        {
-                                       "googlePoint": "Skovmosen 13, lillerød",
-                                       "annotationTitle": "Skovmosen 13, lillerød",
-                                       "latitude": 55.845215,
-                                       "longitude": 12.341699
+                                       "googlePoint": "mørkhøjvej 219",
+                                       "annotationTitle": "mørkhøjvej 219",
+                                       "latitude": 55.725817,
+                                       "longitude": 12.472191
+                                       },
+                                       {
+                                       "googlePoint": "islevhusvej 75",
+                                       "annotationTitle": "islevhusvej 75",
+                                       "latitude": 55.707861,
+                                       "longitude": 12.459622
+                                       },
+                                       {
+                                       "googlePoint": "brovænget 25, brønshøj",
+                                       "annotationTitle": "brovænget 25, brønshøj",
+                                       "latitude": 55.706031,
+                                       "longitude": 12.459319
                                        }
 
                                       
-                                                                              ]
+                                       ]
                       
                       }
                       ]
              },
-                         {
+
+             {
+             "trip": [
+                      {
+                      "routeTitle": "The Dog Walk",
+                      "description":"This route goes to the harbour area and Langeline, home of the little mermaide."
+                      },
+                      { "coordinates":[
+                                       
+                                       {
+                                       "googlePoint": "brovænget 25, brønshøj",
+                                       "annotationTitle": "brovænget 25, brønshøj",
+                                       "latitude": 55.683428,
+                                       "longitude": 12.595503
+                                       },
+                                       {
+                                       "googlePoint": "kildeløbet 80, brønshøj",
+                                       "annotationTitle": "kildeløbet 80, brønshøj",
+                                       "latitude": 55.706276,
+                                       "longitude": 12.455985
+                                       },
+                                       {
+                                       "googlePoint": "kildeløbet 26, brønshøj",
+                                       "annotationTitle": "kildeløbet 26, brønshøj",
+                                       "latitude": 55.704459,
+                                       "longitude": 12.457176
+                                       },
+                                       {
+                                       "googlePoint": "bakkekammen 24, brønshøj",
+                                       "annotationTitle": "bakkekammen 24, brønshøj",
+                                       "latitude": 55.706285,
+                                       "longitude": 12.459819
+                                       },
+                                       
+                                       {
+                                       "googlePoint": "brovænget 25, brønshøj",
+                                       "annotationTitle": "brovænget 25, brønshøj",
+                                       "latitude": 55.683428,
+                                       "longitude": 12.595503
+                                       }
+
+                                       
+                                       
+                                       ]
+                      
+                      }
+                      ]
+             },
+             {
              "trip": [
                       {
                       "routeTitle": "The little mermaide",
@@ -40,7 +106,7 @@
                       },
                       { "coordinates":[
                                        
-                                                                          {
+                                       {
                                        "googlePoint": "Toldbogade 30, københavn",
                                        "annotationTitle": "Toldbogade 30",
                                        "latitude": 55.683428,
@@ -81,7 +147,8 @@
                       }
                       ]
              },
-             {
+
+                          {
              "trip": [
                       {
                       "routeTitle": "Christiansborg",
