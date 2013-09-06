@@ -22,8 +22,9 @@
     
     NSMutableArray *annotationContents;
     BOOL *toggle;
+    BOOL *distanceToggle;
 }
-@property (nonatomic, retain)UILabel *yourLabel;
+@property (nonatomic, retain)UILabel *distanceLabel;
 @property  (nonatomic, retain) NSMutableArray* annotationContents;
 @property (nonatomic, retain) MKMapView*		mapView;
 @property (nonatomic, retain) MKPolyline*		routeLine;

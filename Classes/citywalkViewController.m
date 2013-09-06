@@ -8,9 +8,8 @@
 
 #import "citywalkViewController.h"
 #import "citywalkMapView.h"
-#import "DSTPickerView.h"
-@interface citywalkViewController() <DSTPickerViewDataSource, DSTPickerViewDelegate, UIPickerViewDataSource, UIPickerViewDelegate>{
 
+@interface citywalkViewController() <UIPickerViewDataSource, UIPickerViewDelegate>{
 UIPickerView *uiPicker;
 }
 -(void)releaseAllViews;
@@ -28,7 +27,6 @@ UIPickerView *uiPicker;
 @synthesize locationsData;
 @synthesize error;
 @synthesize locationsDataArray;
-//@synthesize cityPicker;
 @synthesize descriptionLabel;
 @synthesize storeDataID;
 
@@ -106,7 +104,6 @@ static const CGFloat kPickerDismissViewHiddenOpacity = 0.89f;
     // get destination
      NSString *destinationLocation = [[[[firstLocationSet valueForKey:@"coordinates" ] objectAtIndex:1] valueForKeyPath:@"googlePoint"] lastObject];
 
-   //NSString *desLabel = descriptionArray[0];
 
     self.sourceCity.text = arrayForMenu[0];
     self.destinationCity1.text = destinationLocation;
@@ -125,8 +122,7 @@ static const CGFloat kPickerDismissViewHiddenOpacity = 0.89f;
     locationArrayToChange_stored = locationsArray_stored;
     
     [locationData_stored addObjectsFromArray:[jsonArray_mother valueForKeyPath:@"trip"]];
-    
-    //NSLog(@"init locationData_stored: %@",locationData_stored);
+
     
     return locationsArray_stored;
 }
@@ -149,43 +145,29 @@ static const CGFloat kPickerDismissViewHiddenOpacity = 0.89f;
     if(locationArrayToChange_stored != nil){
         if([locationArrayToChange_stored count]){
         [locationArrayToChange_stored removeAllObjects];
-           // NSLog(@"array exsists and is now empty");
         }
     }
     
     [locationArrayToChange_stored addObjectsFromArray:[[[locationData_stored objectAtIndex:data] valueForKey:@"coordinates"]objectAtIndex:1]];
 
-    //locationArrayToChange_stored  = [[[locationData_stored objectAtIndex:data] valueForKey:@"coordinates"]objectAtIndex:1];
     locationsArray = locationsArray_stored;
     
           
     // ISOLATE ANNOTATION PINS FROM START-END
     [locationArrayToChange_stored removeLastObject];
     [locationArrayToChange_stored removeObjectAtIndex:0];
-   // NSLog(@"[locationArrayToChange_stored]: %@",locationArrayToChange_stored);
 
 }
 
 -(void)initUIPicker{
-    
-    
-        CGFloat height = floorf(self.view.bounds.size.height / 2.0);
+        
+    CGFloat height = floorf(self.view.bounds.size.height / 2.0);
 
     uiPicker = [[UIPickerView alloc] initWithFrame:CGRectMake(0, self.view.bounds.size.height+480, self.view.bounds.size.width, height)];
     [uiPicker setShowsSelectionIndicator:YES];
     [uiPicker setDelegate:self];
     [uiPicker setDataSource:self];
     [self.view.window addSubview:uiPicker];
-    
-
-    
-    /*
-    CALayer* mask = [[CALayer alloc] init];
-    mask.backgroundColor = [UIColor blackColor].CGColor;
-    mask.frame = CGRectInset(uiPicker.bounds, 25.0f, 0.0f);
-    mask.cornerRadius = 5.0f;
-    uiPicker.layer.mask = mask;
-   */ 
     
 }
 
@@ -205,19 +187,26 @@ static const CGFloat kPickerDismissViewHiddenOpacity = 0.89f;
         
         self.touchRecognizer = [[UIControl alloc]initWithFrame:self.view.window.bounds];
         
-        UILabel *txt_dismisPicker= [[UILabel alloc]initWithFrame:CGRectMake(75, 100, self.view.bounds.size.width/2, 310)];
+        UILabel *txt_dismisPicker= [[UILabel alloc]initWithFrame:CGRectMake(100, 200, self.view.bounds.size.width/2, 310)];
+        UILabel *txt_youPicked= [[UILabel alloc]initWithFrame:CGRectMake(60, 90, self.view.bounds.size.width/2, 310)];
         txt_dismisPicker.textAlignment = NSTextAlignmentCenter;
+        //txt_youPicked.textAlignment = NSTextAlignmentCenter;
         [self.touchRecognizer addTarget:self action:@selector(touchedOutsidePicker:) forControlEvents:UIControlEventTouchUpInside];
         self.touchRecognizer.backgroundColor = [UIColor whiteColor];
         txt_dismisPicker.backgroundColor = [UIColor whiteColor];
         //txt_dismisPicker.alpha = kPickerDismissViewHiddenOpacity;
         txt_dismisPicker.textColor = [UIColor blackColor];
+        txt_dismisPicker.font = [UIFont boldSystemFontOfSize:12.0f];
         self.touchRecognizer.alpha = kPickerDismissViewHiddenOpacity;
         txt_dismisPicker.text = @"TAP HERE TO CLOSE";
-        [txt_dismisPicker sizeToFit];
+        txt_youPicked.text = @"YOUR ROUTE OF CHOICE:";
 
+
+       
         [self.touchRecognizer addSubview:txt_dismisPicker];
-        
+         [self.touchRecognizer addSubview:txt_youPicked];
+        [txt_youPicked sizeToFit];
+        [txt_dismisPicker sizeToFit];
         [self.view addSubview:self.touchRecognizer];
         
     }else{
@@ -262,26 +251,26 @@ static const CGFloat kPickerDismissViewHiddenOpacity = 0.89f;
 
 #pragma mark - Pickerview
 
-- (NSInteger)numberOfComponentsInPickerView:(DSTPickerView *)pickerView {
+- (NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView {
     return 1;
 }
 
-- (NSInteger)pickerView:(DSTPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component {
+- (NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component {
 
     return [arrayForMenu count];
 }
 
 
-- (void)pickerView:(DSTPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component {
+- (void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component {
     [self setNewRoute:row];
     
 }
 
-- (CGFloat)pickerView:(DSTPickerView *)pickerView widthForComponent:(NSInteger)component {
+- (CGFloat)pickerView:(UIPickerView *)pickerView widthForComponent:(NSInteger)component {
        return 250;
 }
 
-- (NSString *)pickerView:(DSTPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component {
+- (NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component {
     return [arrayForMenu objectAtIndex:row];
 }
 
@@ -299,14 +288,14 @@ static const CGFloat kPickerDismissViewHiddenOpacity = 0.89f;
     }
     return nil; // default
 }
-*/
-- (UIColor *)pickerView:(DSTPickerView *)pickerView colorForRow:(NSInteger)row forComponent:(NSInteger)component {
+
+- (UIColor *)pickerView:(UIPickerView *)pickerView colorForRow:(NSInteger)row forComponent:(NSInteger)component {
     if (row == 1) {
         return [UIColor blueColor];
     }
     return nil;
 }
-
+*/
 #pragma mark ButtonAction
 
 -(IBAction)showGoogleMap:(id)sender
@@ -426,7 +415,15 @@ _Controller.startPoint  = [[[[[locationData_stored objectAtIndex:storeDataID] va
     //[locationArrayToChange_stored release];
     [descriptionLabel release];
     [self releaseAllViews];
+    [UIScrollView release];
     [super dealloc];
 }
-
-@end
+/*
+- (IBAction)showScrollView:(id)sender {
+    
+    ScrollViewController *scrollView	= [[ScrollViewController alloc]initWithNibName:@"ScrollViewController" bundle:nil];
+    [self.navigationController pushViewController:scrollView animated:YES];
+	[scrollView release];
+}
+ */
+ @end

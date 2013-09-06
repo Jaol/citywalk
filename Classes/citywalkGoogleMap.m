@@ -2,7 +2,7 @@
 //  SBGoogleMap.m
 //  Citywalk
 //
-//  Created by JAkob Højgård Olsen
+//  Created by Jakob Højgård Olsen
 //  Copyright 2013 Grafect All rights reserved.
 //
 
@@ -40,6 +40,8 @@
 @synthesize annotationContent;
 @synthesize firstController;
 @synthesize wayPoints;
+@synthesize showDistancesBtn = mShowDistancesBtn;
+
 //Invoked when the class is instantiated in XIB
 -(id)initWithCoder:(NSCoder*)aDecoder
 {
@@ -80,7 +82,7 @@
 // Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
 - (void)viewDidLoad {
     [super viewDidLoad];
-	self.title = @"Google Maps";
+	self.title = @"Map";
 	self.map = [[citywalkMapView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height)];
 	[self.view addSubview:mMap];
 	
@@ -93,12 +95,31 @@
        
 		[self updateRoute];
 	}
-}
+    
+    /*
+    UIView *toolsView = [[UIView alloc]initWithFrame:CGRectMake(250, 0, 125, 400)];
+    
+    toolsView.backgroundColor = [UIColor whiteColor];
+    toolsView.alpha = 0.8f;
+ 
     
 
 
+    UIButton* infoButton = [UIButton buttonWithType:UIButtonTypeInfoLight];
+    [infoButton addTarget:self action:@selector(showInfoView:) forControlEvents:UIControlEventTouchUpInside];
+    self.navigationItem.rightBarButtonItem = [[[UIBarButtonItem alloc] initWithCustomView:infoButton] autorelease];
+       */
+}
+
+
+
    
-          
+-(void)showInfoView{
+
+
+
+
+}
 
  
 // Override to allow orientations other than the default portrait orientation.
@@ -227,6 +248,11 @@
 	[alertView release];
 }
 
+-(void)showDistancefunc{
+
+    [mMap showDistance];
+}
+
 - (void)directionsDidUpdateDirections:(UICGDirections *)indirections {
 	[[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
 	
@@ -235,7 +261,8 @@
 	
 	[mMap loadRoutes:routePoints]; // Loads route by getting the array of all coordinates in the route.
     
-    UIToolbar *tools = [[UIToolbar alloc] initWithFrame:CGRectMake(0.0f, 0.0f, 115, 44.01f)]; // 44.01 shifts it up 1px for some reason
+    
+    UIToolbar *tools = [[UIToolbar alloc] initWithFrame:CGRectMake(0.0f, 0.0f, 175, 44.01f)]; // 44.01 shifts it up 1px for some reason
     
     tools.clearsContextBeforeDrawing = NO;
     tools.clipsToBounds = NO;
@@ -246,21 +273,38 @@
     
     // Create a standard Load button.
     
+    
+    self.showDistancesBtn = [[UIBarButtonItem alloc]initWithTitle:@"INFO"
+                                                   style:UIBarButtonItemStyleBordered
+                                                  target:self
+                                                  action:@selector(showDistancefunc)];
+    
+    
+    
+    
+    [buttons addObject:mShowDistancesBtn];
+    
+    
     self.loadBtn = [[UIBarButtonItem alloc]initWithTitle:@"START" 
                                                 style:UIBarButtonItemStyleBordered 
                                                target:self 
                                                   action:@selector(instanceFind)];
     
-    [buttons addObject:mLoadBtn];
     
-    // Add Go button.
+    
+    
+    [buttons addObject:mLoadBtn];
+    //[mLoadBtn release];
+     //Add Go button.
     UIBarButtonItem *mGoBtn = [[UIBarButtonItem alloc] initWithTitle:@"LIST" 
                                           style:UIBarButtonItemStyleBordered 
                                          target:self 
                                          action:@selector(showCheckpoints)];
-    [buttons addObject:mGoBtn];
-    [mGoBtn release];
+     [buttons addObject:mGoBtn];
+     [mGoBtn release];
+
     
+
     // Add buttons to toolbar and toolbar to nav bar.
     [tools setItems:buttons animated:NO];
     [buttons release];
@@ -269,6 +313,7 @@
     self.navigationItem.rightBarButtonItem = twoButtons;
     [twoButtons release];
 	
+    
 	//Add annotations of different colors based on initial and final places.
 	citywalkRouteAnnotation *startAnnotation = [[[citywalkRouteAnnotation alloc] initWithCoordinate:[[routePoints objectAtIndex:0] coordinate]
 																					title:mStartPoint

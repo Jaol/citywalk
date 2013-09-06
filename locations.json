@@ -3,7 +3,7 @@
              {
              "trip": [
                       {
-                      "routeTitle": "The old streets",
+                      "routeTitle": "ROUTE -> LYNGE <-",
                       "description":"This route goes throug some interesting spots, where you will hear stories about king and queens, how the city was build and much more."
                       },
                       { "coordinates":[
@@ -53,6 +53,24 @@
                                        "longitude": 12.599097
                                        },
                                        {
+                                       "googlePoint": "Folke bernadottes allé 27, københavn",
+                                       "annotationTitle": "Folke bernadottes allé 27",
+                                       "latitude": 55.69433988,
+                                       "longitude": 12.59277355
+                                       },
+                                       {
+                                       "googlePoint": "Krokodillegade 21, københavn",
+                                       "annotationTitle": "!!! Krokodillegade 21 !!!",
+                                       "latitude": 55.69012697,
+                                       "longitude": 12.58679992
+                                       },
+                                       {
+                                       "googlePoint": "Kronprinsessegade 17, københavn",
+                                       "annotationTitle": "Kronprinsessegade 17",
+                                       "latitude": 55.68489954,
+                                       "longitude": 12.58261952
+                                       },
+                                       {
                                        "googlePoint": "Sankt Annæ Plads, 36, københavn",
                                        "annotationTitle": "Royal Danish PlayHouse",
                                        "latitude": 55.680252,
@@ -70,10 +88,15 @@
                       "description":"This route goes to the goverment buildings and reveals the story of this country"
                       },
                       { "coordinates":[
-                                       
+                                       {
+                                       "googlePoint": "Prins jørgens gård 7, christiansborg",
+                                       "annotationTitle": "Prins jørgens gård 7, christiansborg",
+                                       "latitude": 55.6771693,
+                                       "longitude": 12.5795804
+                                       },
                                        {
                                        "googlePoint": "Store kongensgade 1, København",
-                                       "annotationTitle": "Store Kongensgade1 ",
+                                       "annotationTitle": "Store Kongensgade 1",
                                        "latitude": 55.681444,
                                        "longitude": 12.585311
                                        },
@@ -104,8 +127,8 @@
                                        {
                                        "googlePoint": "Christiansborg slotsplads, København",
                                        "annotationTitle": "Christiansborg",
-                                       "latitude": 55.676350,
-                                       "longitude": 12.582242
+                                       "latitude": 55.6766824,
+                                       "longitude": 12.5815467
                                        }
                                        ]
                       

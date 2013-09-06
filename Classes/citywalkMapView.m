@@ -19,7 +19,7 @@
 @synthesize routeLineView = mrouteLineView;
 @synthesize fetchedData;
 @synthesize annotationContents;
-@synthesize yourLabel;
+@synthesize distanceLabel;
 @synthesize locArray;
 
 - (id)initWithFrame:(CGRect)frame {
@@ -42,22 +42,52 @@
 	
        
         
-        yourLabel = [[UILabel alloc] initWithFrame:CGRectMake(10, 310, 300, 90)];
+        distanceLabel = [[UILabel alloc] initWithFrame:CGRectMake(10, 510, 300, 130)];
         
-        [yourLabel setTextColor:[UIColor whiteColor]];
-        [yourLabel setBackgroundColor:[UIColor blackColor]];
-        [yourLabel setFont:[UIFont fontWithName: @"Trebuchet MS" size: 12.0f ]];
-        yourLabel.numberOfLines= 0;
-        [self addSubview:yourLabel];
+        [distanceLabel setTextColor:[UIColor whiteColor]];
+        [distanceLabel setBackgroundColor:[UIColor blackColor]];
+        distanceLabel.alpha = 0.8f;
+        [distanceLabel setFont:[UIFont fontWithName: @"Trebuchet MS" size: 12.0f ]];
+        distanceLabel.numberOfLines= 0;
+        [self addSubview:distanceLabel];
+        distanceToggle = false;
         
-
+        
+                
     }
     //if (nil == self.locationManager)
     //    self.locationManager = [[CLLocationManager alloc] init];
     
-   
+      
     return self;
 }
+
+
+-(void)showDistance{
+    
+    distanceToggle=!distanceToggle;
+    if(distanceToggle)
+    {
+        [UIView animateWithDuration:0.3 animations:^{
+            distanceLabel.frame = CGRectMake(10,
+                                        280,
+                                        300,
+                                        130);
+        }];
+       
+    }else{
+        [UIView animateWithDuration:0.3 animations:^{
+            distanceLabel.frame = CGRectMake(10,
+                                             510,
+                                             300,
+                                             130);
+        }];
+           }
+    
+    
+    
+}
+
 /*
 // Only override drawRect: if you perform custom drawing.
 // An empty implementation adversely affects performance during animation.
@@ -216,7 +246,7 @@
         
                    
         testText = [testText stringByAppendingFormat:@"%@\n", toText];
- yourLabel.text = testText;
+ distanceLabel.text = testText;
          }
 
 

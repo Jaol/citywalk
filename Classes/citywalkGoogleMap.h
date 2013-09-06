@@ -28,7 +28,8 @@
 	NSString*			mEndPoint;			// It will take the name of source city
 	citywalkRouteAnnotation*	mBetweenAnnotation;	// An Instance of SBRouteAnnotation which will give the annotations for checkpoints in the route. 
 	UIBarButtonItem*	mLoadBtn;			// button for loading and removing annotations for checkpoints in the route. 
-	NSMutableArray*		mAnnotationArray;	// An array of  annotations for checkpoints in the route.
+	UIBarButtonItem*    mShowDistancesBtn;
+    NSMutableArray*		mAnnotationArray;	// An array of  annotations for checkpoints in the route.
 	NSMutableArray*		destination;
 	UICGRoutes *		routes;	
 	NSMutableArray*		mAnnotations;
@@ -46,6 +47,7 @@
 @property (nonatomic,retain) NSString* startPoint;
 @property (nonatomic,retain) NSString* endPoint;
 @property (nonatomic,retain) UIBarButtonItem* loadBtn;
+@property (nonatomic,retain) UIBarButtonItem* showDistancesBtn;
 @property (nonatomic,retain) NSMutableArray* annotationArray;
 @property (nonatomic)        UICGTravelModes travelMode;
 @property (nonatomic,retain) NSMutableArray *destination;
