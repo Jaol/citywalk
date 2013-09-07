@@ -50,6 +50,44 @@
                       }
                       ]
              },
+             {
+             "trip": [
+                      {
+                      "routeTitle": "Smashing confrence",
+                      "description":"This route goes throug some interesting spots, where you will hear stories about king and queens, how the city was build and much more."
+                      },
+                      { "coordinates":[
+                                       {
+                                       "googlePoint": "Konrad-Adenauer-Platz 2 Freiburg",
+                                       "annotationTitle": "The Hotel - Konrad-Adenauer-Platz 2 Freiburg",
+                                       "latitude": 47.9951997,
+                                       "longitude": 7.8417603
+                                       },
+                                       {
+                                       "googlePoint": "Münsterplatz 24, freiburg",
+                                       "annotationTitle": "Historisches Kaufhaus",
+                                       "latitude": 47.9949791,
+                                       "longitude": 7.8526979
+                                       },
+                                       {
+                                       "googlePoint": "Werthmannstr. 15, Freiburg",
+                                       "annotationTitle": "Smashing Events GmbH",
+                                       "latitude": 47.9909803,
+                                       "longitude": 7.8456349
+                                       },
+                                       {
+                                       "googlePoint": "Konrad-Adenauer-Platz 2 Freiburg",
+                                       "annotationTitle": "The Hotel - Konrad-Adenauer-Platz 2 Freiburg",
+                                       "latitude": 47.9951997,
+                                       "longitude": 7.8417603
+                                       }
+                                       
+                                       
+                                       ]
+                      
+                      }
+                      ]
+             },
 
              {
              "trip": [
